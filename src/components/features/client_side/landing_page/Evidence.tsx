@@ -1,9 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Evidence: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % testimonials.length);
+    }, 3500); // 3.5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const testimonials = [
     {
@@ -130,50 +138,60 @@ const Evidence: React.FC = () => {
 
           {/* Right Side - Testimonial Card Slider */}
           <div className="flex-1 w-full max-w-lg flex flex-col items-center">
-            <div
-              className="bg-white rounded-[17.9px] p-8 w-full max-w-[355px] mb-6"
-              style={{
-                minHeight: "395px",
-              }}
-            >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <img
-                    key={i}
-                    src="/home_page/star_icon.svg"
-                    alt="star"
-                    className="w-5 h-5"
-                  />
+            <div className="relative overflow-hidden w-full max-w-[355px] mb-6 rounded-[17.9px]">
+              <div
+                className="flex transition-transform duration-1000 ease-in-out"
+                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-full bg-white rounded-[17.9px] p-8"
+                    style={{
+                      minHeight: "395px",
+                    }}
+                  >
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <img
+                          key={i}
+                          src="/home_page/star_icon.svg"
+                          alt="star"
+                          className="w-5 h-5"
+                        />
+                      ))}
+                    </div>
+
+                    {/* Description */}
+                    <p
+                      className="text-[#0C0407] mb-6"
+                      style={{
+                        fontFamily: "Montserrat",
+                        fontSize: "clamp(0.875rem, 1.8vw, 1rem)",
+                        lineHeight: "24.17px",
+                        letterSpacing: "0%",
+                        fontWeight: 400,
+                      }}
+                    >
+                      {testimonial.description}
+                    </p>
+
+                    {/* Author */}
+                    <p
+                      className="text-[#0C0407] font-bold"
+                      style={{
+                        fontFamily: "Inter",
+                        fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
+                        lineHeight: "18.8px",
+                        letterSpacing: "-0.13px",
+                      }}
+                    >
+                      {testimonial.author}
+                    </p>
+                  </div>
                 ))}
               </div>
-
-              {/* Description */}
-              <p
-                className="text-[#0C0407] mb-6"
-                style={{
-                  fontFamily: "Montserrat",
-                  fontSize: "clamp(0.875rem, 1.8vw, 1rem)",
-                  lineHeight: "24.17px",
-                  letterSpacing: "0%",
-                  fontWeight: 400,
-                }}
-              >
-                {testimonials[activeSlide].description}
-              </p>
-
-              {/* Author */}
-              <p
-                className="text-[#0C0407] font-bold"
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
-                  lineHeight: "18.8px",
-                  letterSpacing: "-0.13px",
-                }}
-              >
-                {testimonials[activeSlide].author}
-              </p>
             </div>
 
             {/* Slider Bullets */}

@@ -21,11 +21,8 @@ const InfoCard: React.FC<CardProps> = ({
 }) => {
   return (
     <div
-      className="rounded-[14.53px] border overflow-hidden"
+      className="rounded-[14.53px] border overflow-hidden w-full h-auto"
       style={{
-        width: Math.min(width, 9999) + "px",
-        maxWidth: "100%",
-        height: height + "px",
         borderRadius: "14.53px",
         border: "0.91px solid #898989",
         background: gradient,
@@ -33,7 +30,7 @@ const InfoCard: React.FC<CardProps> = ({
         flexDirection: "column",
       }}
     >
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-4 md:p-6 flex flex-col h-full">
         <div className="flex items-center gap-4">
           
           <h3
@@ -41,8 +38,8 @@ const InfoCard: React.FC<CardProps> = ({
             style={{
               fontFamily: "Montserrat",
               fontWeight: 600,
-              fontSize: "32px",
-              lineHeight: "45.77px",
+              fontSize: "clamp(24px, 5vw, 32px)",
+              lineHeight: "clamp(30px, 8vw, 45.77px)",
             }}
           >
             {title}
@@ -54,8 +51,8 @@ const InfoCard: React.FC<CardProps> = ({
           style={{
             fontFamily: "Montserrat",
             fontWeight: 400,
-            fontSize: "16px",
-            lineHeight: "23.61px",
+            fontSize: "clamp(14px, 3vw, 16px)",
+            lineHeight: "clamp(20px, 4vw, 23.61px)",
           }}
         >
           {description}
@@ -66,14 +63,7 @@ const InfoCard: React.FC<CardProps> = ({
             <img
               src={image}
               alt="card visual"
-              className="w-full mt-6"
-              style={{
-                height: "260px",
-                objectFit: "cover",
-                borderBottomLeftRadius: "14.53px",
-                borderBottomRightRadius: "14.53px",
-                borderRadius: "14.53px",
-              }}
+              className="w-full h-[200px] md:h-[260px] mt-6 object-cover rounded-b-[14.53px]"
             />
           ) : null}
         </div>

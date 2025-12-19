@@ -64,7 +64,7 @@ const DeliverNHS: React.FC = () => {
             <div
               className="relative mb-8 p-6 rounded-[28px] border border-[#A7A5A033] flex w-full max-w-[544px]"
               style={{
-                height: "198px",
+                minHeight: "198px",
                 backgroundColor: "#005EB80D",
                 border: "1px solid #A7A5A033",
               }}

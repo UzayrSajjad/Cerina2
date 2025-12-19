@@ -6,6 +6,9 @@ import Evidence from "@/components/features/client_side/landing_page/Evidence";
 import FeatureSection from "@/components/features/client_side/landing_page/FeatureSection";
 import HeroSection from "@/components/features/client_side/landing_page/HeroSection";
 import NhsSolutions from "@/components/features/client_side/landing_page/nhsSolutions";
+import VideoTestimonials from "@/components/features/client_side/landing_page/VideoTestimonials";
+import FaqSection from "@/components/features/client_side/landing_page/FaqSection";
+import { Video } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -57,6 +60,12 @@ export default function HomePage() {
       <Evidence/>
 
       <CaseResearch/>
+
+      
+      <VideoTestimonials/>
+
+      <FaqSection />
+
     </>
   );
 }
