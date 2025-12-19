@@ -9,14 +9,14 @@ const faqs = [
     answer:
       "Cerina Health is a digital mental health platform offering personalised support through guided CBT sessions, structured programmes, AI-assisted tools, self-care exercises, and evidence-based therapeutic content.",
   },
-  { question: "What Method does Cerina’s Digital Therapy Use?", answer: "" },
-  { question: "What is Cognitive Behavioural Therapy?", answer: "" },
-  { question: "What is anxiety?", answer: "" },
-  { question: "What is Generalised Anxiety Disorder (GAD)", answer: "" },
-  { question: "Who can use Cerina Health?", answer: "" },
-  { question: "On which platforms is Cerina available?", answer: "" },
-  { question: "How does Cerina protect user privacy and data?", answer: "" },
-  { question: "How is AI used safely in Cerina?", answer: "" },
+  { question: "What Method does Cerina’s Digital Therapy Use?", answer: "Cerina's digital therapy primarily uses Cognitive Behavioural Therapy (CBT), a proven psychological approach that helps individuals identify and change negative thought patterns and behaviours." },
+  { question: "What is Cognitive Behavioural Therapy?", answer: "Cognitive Behavioural Therapy (CBT) is a type of psychotherapy that focuses on changing negative thought patterns and behaviours. It helps individuals develop coping strategies for dealing with various mental health challenges." },
+  { question: "What is anxiety?", answer: "Anxiety is a normal human emotion characterized by feelings of worry, nervousness, or unease about future events. While occasional anxiety is common, persistent or excessive anxiety can interfere with daily life and may indicate an anxiety disorder." },
+  { question: "What is Generalised Anxiety Disorder (GAD)", answer: "Generalised Anxiety Disorder (GAD) is a mental health condition characterized by chronic, excessive worry and anxiety about various aspects of life, such as work, health, or relationships. People with GAD often find it difficult to control their worry and may experience physical symptoms like restlessness, fatigue, and muscle tension." },
+  { question: "Who can use Cerina Health?", answer: "Cerina Health is designed for adults seeking support for mental health concerns, particularly those dealing with anxiety, stress, and related conditions. It's suitable for individuals looking for accessible, evidence-based mental health support." },
+  { question: "On which platforms is Cerina available?", answer: "Cerina Health is available as a web application accessible through modern browsers, and mobile apps for iOS and Android devices, ensuring convenient access anytime, anywhere." },
+  { question: "How does Cerina protect user privacy and data?", answer: "Cerina Health prioritizes user privacy and data security. We use industry-standard encryption, comply with data protection regulations like GDPR, and implement strict access controls. User data is anonymized for analysis and never shared without consent." },
+  { question: "How is AI used safely in Cerina?", answer: "AI in Cerina is used to personalize therapy recommendations and provide supportive insights, but human oversight ensures safety. Our AI tools are trained on evidence-based therapeutic principles and are designed to complement, not replace, professional mental health support." },
 ];
 
 const FaqSection: React.FC = () => {
