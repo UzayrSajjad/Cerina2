@@ -1,6 +1,8 @@
 "use client";
 
+import CaseResearch from "@/components/features/client_side/landing_page/CaseResearch";
 import DeliverNHS from "@/components/features/client_side/landing_page/deliver_nhs";
+import Evidence from "@/components/features/client_side/landing_page/Evidence";
 import FeatureSection from "@/components/features/client_side/landing_page/FeatureSection";
 import HeroSection from "@/components/features/client_side/landing_page/HeroSection";
 import NhsSolutions from "@/components/features/client_side/landing_page/nhsSolutions";
@@ -51,6 +53,10 @@ export default function HomePage() {
       <NhsSolutions/>
 
       <DeliverNHS/>
+
+      <Evidence/>
+
+      <CaseResearch/>
     </>
   );
 }
