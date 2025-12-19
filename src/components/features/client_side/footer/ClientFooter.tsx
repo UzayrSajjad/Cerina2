@@ -188,7 +188,6 @@ export default function Footer() {
                   <li>
                     <Link
                       href="/accessibility"
-                      style={{ whiteSpace: "nowrap" }}
                     >
                       Accessibility Management
                     </Link>
@@ -210,9 +209,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between mt-8">
-          <span className="text-sm text-gray-600 flex-shrink-0" style={{whiteSpace: 'nowrap'}}>NoSuffering Ltd. Copyright 2024. All rights reserved.</span>
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mt-8">
+          <span className="text-sm text-gray-600 text-center sm:text-left">NoSuffering Ltd. Copyright 2024. All rights reserved.</span>
+          <div className="flex items-center justify-center sm:justify-end gap-3">
             <img
               src="/home_page/footer_instagram.svg"
               alt="Instagram"

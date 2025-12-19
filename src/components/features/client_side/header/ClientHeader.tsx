@@ -10,6 +10,19 @@ export default function Header() {
   const lastScrollY = useRef(0);
   const [mounted, setMounted] = useState(false);
   const mblRef = useRef<HTMLDivElement>(null);
+  const [isWhoWeServeOpen, setIsWhoWeServeOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
+
+  const whoWeServe = [
+    { id: 'organisations', label: 'Organisations', icon: '/home_page/icon_building.svg', hoverClass: 'hover:bg-gray-100' },
+    { id: 'individuals', label: 'Individuals', icon: '/home_page/icon_person.svg', hoverClass: 'hover:bg-gray-100' },
+    { id: 'universities', label: 'Universities', icon: '/home_page/icon_university.svg', hoverClass: 'hover:bg-gray-100' },
+  ];
+
+  const products = [
+    { id: 'cerina-app', label: 'Cerina App', icon: '/home_page/icon_spinner.svg', hoverClass: 'hover:bg-gray-100' },
+    { id: 'ai-patient-flow', label: 'AI Patient-Flow', icon: '/home_page/icon_chat.svg', hoverClass: 'hover:bg-gray-100' },
+  ];
 
   const scrollToId = (id: string) => {
     const el = document.getElementById(id);
@@ -47,35 +60,36 @@ export default function Header() {
 
   return (
     <>
-      {/* Mobile Menu Button -*/}
-      <button
-        className={`fixed top-8 right-4 z-[99999] p-2 md:hidden bg-white/80 rounded-full shadow-lg backdrop-blur-md transition-opacity duration-300 ${
-          mounted ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle menu"
-      >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
 
       <header
         ref={headerRef}
-        className="z-50 will-change-transform transition-transform duration-300 ease-in-out fixed top-[33px] left-1/2 transform -translate-x-1/2 w-[calc(100vw-202px)] max-w-[1452px] h-[88px] rounded-[1010px] shadow-[0px_17px_45.2px_0px_#0000000D] backdrop-blur-[50px] bg-white/70"
+        className="z-50 will-change-transform transition-transform duration-300 ease-in-out fixed top-[20px] sm:top-[33px] left-1/2 transform -translate-x-1/2 w-[calc(100vw-16px)] sm:w-[calc(100vw-32px)] md:w-[calc(100vw-64px)] lg:w-[calc(100vw-128px)] xl:w-[calc(100vw-202px)] max-w-[1452px] h-[64px] sm:h-[72px] md:h-[88px] rounded-[1010px] shadow-[0px_17px_45.2px_0px_#0000000D] backdrop-blur-[50px] bg-white/70"
       >
-        <div className="relative max-w-[1240px] mx-auto px-4 h-[88px] flex justify-between items-center">
+        <div className="relative max-w-[1240px] mx-auto px-4 h-[64px] sm:h-[72px] md:h-[88px] flex justify-between items-center">
           {/* Logo */}
-          <div className="absolute left-4 top-1/2 -translate-y-1/2">
+          <div className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2">
             <Link href="/">
               <img
                 src="/logo.svg"
                 alt="Promesse Logo"
-                style={{ maxWidth: "80%" }}
+                className="h-8 w-auto sm:h-10 lg:h-12"
               />
             </Link>
           </div>
 
+          {/* Mobile Menu Button */}
+          <button
+            className={`lg:hidden p-2 bg-white/80 rounded-full shadow-lg backdrop-blur-md transition-opacity duration-300 ml-auto ${
+              mounted ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 ml-auto text-gray-800 font-normal text-[0.875rem] leading-[1.25rem]">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-4 2xl:gap-6 ml-auto text-gray-800 font-normal text-[0.8rem] xl:text-[0.875rem] leading-[1.25rem]">
            
             <a
               href="#"
@@ -83,47 +97,103 @@ export default function Header() {
                 e.preventDefault();
                 scrollToId("about");
               }}
+              className="whitespace-nowrap"
             >
               About us
             </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("features");
-              }}
-              className="flex items-center gap-1"
-            >
-             Who We Serve
-             <img src="/arrow_down.svg" alt="arrow" className="w-4 h-4" />
-            </a>
+              <div className="relative group">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToId("features");
+                  }}
+                  className="flex items-center gap-1 whitespace-nowrap"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  Who We Serve
+                  <img src="/arrow_down.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
+                </a>
+
+                {/* Dropdown - appears on hover */}
+                <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[180px] bg-white rounded-lg shadow-lg z-50">
+                  <div className="py-2">
+                  {whoWeServe.map((item) => (
+                    <a
+                      key={item.id}
+                      className={`flex items-center gap-3 px-4 py-2 ${item.hoverClass || 'hover:bg-gray-100'} transition-colors text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-800 cursor-pointer`}
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsOpen(false);
+                          scrollToId(item.id);
+                        }}
+                      >
+                        <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
+                          <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                        </span>
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            <div className="relative group">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId("research");
+                }}
+                className="flex items-center gap-1 whitespace-nowrap"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                Our Products
+                <img src="/arrow_down.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
+              </a>
+
+              {/* Dropdown - appears on hover */}
+              <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[160px] bg-white rounded-lg shadow-lg z-50">
+                <div className="py-2">
+                  {products.map((item) => (
+                    <a
+                      key={item.id}
+                      className={`flex items-center gap-3 px-4 py-2 ${item.hoverClass || 'hover:bg-gray-100'} transition-colors text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-800 cursor-pointer`}
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setIsOpen(false);
+                        scrollToId(item.id);
+                      }}
+                    >
+                      <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
+                        <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                      </span>
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
             <a
               href="#"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToId("research");
               }}
-              className="flex items-center gap-1"
-            >
-             Our Products
-             <img src="/arrow_down.svg" alt="arrow" className="w-4 h-4" />
-            </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("research");
-              }}
+              className="whitespace-nowrap"
             >
              Research
             </a>
             
-            <a href="/blogs">Blogs</a>
+            <a href="/blogs" className="whitespace-nowrap">Blogs</a>
             <Link
               href="/waitlist"
-              className="ml-4 h-[60px] px-[35px] py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[10px]"
+              className="ml-2 xl:ml-4 h-[40px] xl:h-[48px] 2xl:h-[60px] px-[18px] xl:px-[24px] 2xl:px-[35px] py-[10px] xl:py-[12px] 2xl:py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[6px] xl:gap-[8px] 2xl:gap-[10px] text-xs xl:text-sm 2xl:text-base whitespace-nowrap"
             >
-              <img src="/arrow_right.svg" alt="arrow" className="w-4 h-4" />
+              <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
               Contact Us
             </Link>
           </nav>
@@ -133,33 +203,38 @@ export default function Header() {
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-10 md:hidden"
-          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/50 z-10 lg:hidden"
+          onClick={() => {
+            setIsOpen(false);
+            setIsWhoWeServeOpen(false);
+            setIsProductsOpen(false);
+          }}
         />
       )}
 
       {/* Slide Menu */}
       <div
         ref={mblRef}
-        className={`fixed top-0 right-0 w-full h-[100vh] z-[999] md:hidden transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 right-0 w-full sm:w-80 h-[100vh] z-[999] lg:hidden transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}
-          bg-white bg-gradient-to-r from-[#B7CEED] to-[#DDB9DF] border-l border-white/20`}
+          bg-white backdrop-blur-xl shadow-2xl border-l border-white/20`}
       >
-        <div className="flex flex-col items-center justify-center h-full space-y-6 text-gray-800 overflow-hidden">
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 p-2 bg-white/80 rounded-full shadow-lg backdrop-blur-md z-10"
+          onClick={() => {
+            setIsOpen(false);
+            setIsWhoWeServeOpen(false);
+            setIsProductsOpen(false);
+          }}
+          aria-label="Close menu"
+        >
+          <X size={20} />
+        </button>
+        <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-6 text-gray-800 px-4">
           <a
-            href="/"
-            className="text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToId("home");
-              setIsOpen(false);
-            }}
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className="text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
+            href="#"
+            className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
             onClick={(e) => {
               e.preventDefault();
               scrollToId("about");
@@ -168,30 +243,89 @@ export default function Header() {
           >
             About us
           </a>
+          <button
+            className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors flex items-center gap-1"
+            onClick={() => {
+              setIsWhoWeServeOpen(!isWhoWeServeOpen);
+              setIsProductsOpen(false);
+            }}
+          >
+            Who We Serve
+            <img src="/arrow_down.svg" alt="arrow" className={`w-3 h-3 transition-transform ${isWhoWeServeOpen ? 'rotate-180' : ''}`} />
+          </button>
+          {isWhoWeServeOpen && (
+            <div className="ml-4 space-y-2">
+              {whoWeServe.map((item) => (
+                <a
+                  key={item.id}
+                  className="flex items-center gap-2 px-2 py-1 text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-700 hover:text-[#5E005E] transition-colors"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    scrollToId(item.id);
+                  }}
+                >
+                  <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          )}
+          <button
+            className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors flex items-center gap-1"
+            onClick={() => {
+              setIsProductsOpen(!isProductsOpen);
+              setIsWhoWeServeOpen(false);
+            }}
+          >
+            Our Products
+            <img src="/arrow_down.svg" alt="arrow" className={`w-3 h-3 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+          </button>
+          {isProductsOpen && (
+            <div className="ml-4 space-y-2">
+              {products.map((item) => (
+                <a
+                  key={item.id}
+                  className="flex items-center gap-2 px-2 py-1 text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-700 hover:text-[#5E005E] transition-colors"
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    scrollToId(item.id);
+                  }}
+                >
+                  <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          )}
           <a
-            href="#features"
-            className="text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
+            href="#"
+            className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
             onClick={(e) => {
               e.preventDefault();
-              scrollToId("features");
+              scrollToId("research");
               setIsOpen(false);
             }}
           >
-            Features
+            Research
           </a>
           <a
             href="/blogs"
-            className="text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
+            className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Blogs
           </a>
           <Link
             href="/waitlist"
-            className="px-[1.5rem] py-[0.75rem] rounded-md bg-[#5E005E] text-white font-semibold hover:bg-[#4A004A] transition-colors duration-200"
+            className="px-[1rem] sm:px-[1.5rem] py-[0.5rem] sm:py-[0.75rem] rounded-md bg-[#DDAC7C] text-[#18161A] font-semibold hover:bg-[#C99B6A] transition-colors duration-200 text-sm sm:text-base flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            Join our waitlist
+            <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3" />
+            Contact Us
           </Link>
         </div>
       </div>

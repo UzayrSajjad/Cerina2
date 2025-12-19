@@ -62,6 +62,32 @@ export default function NhsSolutions() {
     <section className="w-full bg-[#D9C28F]/72 py-12 sm:py-16 lg:py-20">
       <div className="max-w-[1240px] mx-auto px-4 relative">
         {/* Top Toggle */}
+        <div className="flex justify-end mb-4 block md:hidden">
+          <div className="group relative">
+            <button
+              aria-label="More information about estimates"
+              aria-describedby="nhs-estimates-tooltip-small"
+              className="w-10 h-10 rounded-full bg-white/60 border border-white flex items-center justify-center focus:outline-none"
+            >
+              <img src="/home_page/info.svg" alt="info" className="w-5 h-5" />
+            </button>
+
+            <div
+              id="nhs-estimates-tooltip-small"
+              role="status"
+              className="pointer-events-none absolute right-full top-1/2 -translate-y-1/2 mr-4 min-w-[200px] sm:min-w-[270px]"
+            >
+              <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150 flex items-center justify-center bg-black text-white rounded-md pl-1 pr-0 py-2 shadow-lg">
+                <div className="font-normal" style={{fontSize: "clamp(10px, 1.5vw, 11.38px)", lineHeight: "100%", letterSpacing: "0px", verticalAlign: "middle", color: "#FFFFFF"}}>Estimates based on leading industry and academic data from Deloitte, Health and Safety Executive and peer reviewed studies.</div>
+                <div
+                  aria-hidden
+                  className="w-0 h-0 border-[8px] border-transparent border-l-black"
+                  style={{ marginRight: "-6px" }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="flex justify-center mb-8">
           <div className="inline-flex items-center gap-1 bg-white/50 rounded-full p-1 shadow-sm">
             <button
@@ -71,6 +97,7 @@ export default function NhsSolutions() {
                   ? "bg-[#DDC7A3] text-[#111] shadow-inner"
                   : "text-[#6b6b6b] bg-white/0"
               }`}
+              style={{fontSize: "clamp(0.875rem, 2vw, 1rem)"}}
             >
               NHS solutions
             </button>
@@ -82,6 +109,7 @@ export default function NhsSolutions() {
                   ? "bg-[#DDC7A3] text-[#111] shadow-inner"
                   : "text-[#6b6b6b] bg-white/0"
               }`}
+              style={{fontSize: "clamp(0.875rem, 2vw, 1rem)"}}
             >
               Business solutions
             </button>
@@ -90,15 +118,15 @@ export default function NhsSolutions() {
 
         {/* Headline */}
         <div className="text-center mb-6">
-          <h3 className="font-medium text-[#111] mb-3" style={{fontSize: "40px", lineHeight: "50.4px", letterSpacing: "-0.96px", textAlign: "center"}}>
+          <h3 className="font-medium text-[#111] mb-3" style={{fontSize: "clamp(1.5rem, 4vw, 2.5rem)", lineHeight: "1.26", letterSpacing: "-0.96px", textAlign: "center"}}>
             How much can Cerina save your organisation?
           </h3>
 
-          <div className="font-medium text-[#121212] mb-1" style={{fontSize: "clamp(2.5rem, 6vw, 3rem)", lineHeight: "50.4px", textAlign: "center"}}>
+          <div className="font-medium text-[#121212] mb-1" style={{fontSize: "clamp(2.5rem, 6vw, 3rem)", lineHeight: "1.26", textAlign: "center"}}>
             {formatNumber(headlineNumber)}
           </div>
 
-          <p className="font-normal text-[#2b2b2b]" style={{fontSize: "clamp(1rem, 3vw, 1.5rem)", lineHeight: "50.4px", letterSpacing: "-0.96px", textAlign: "center"}}>{activeTab === "business" ? "Number of employees" : "Number of patients"}</p>
+          <p className="font-normal text-[#2b2b2b]" style={{fontSize: "clamp(1rem, 3vw, 1.5rem)", lineHeight: "1.26", letterSpacing: "-0.96px", textAlign: "center"}}>{activeTab === "business" ? "Number of employees" : "Number of patients"}</p>
         </div>
 
         {/* Slider */}
@@ -163,7 +191,7 @@ export default function NhsSolutions() {
         </div>
 
         {/* small info button top-right with hover tooltip */}
-        <div className="absolute right-4 top-4 hidden lg:flex">
+        <div className="absolute right-4 top-4 hidden md:flex">
           <div className="group relative">
             <button
               aria-label="More information about estimates"
@@ -176,9 +204,9 @@ export default function NhsSolutions() {
             <div
               id="nhs-estimates-tooltip"
               role="status"
-              className="pointer-events-none absolute right-full top-1/2 -translate-y-1/2 mr-4 min-w-[270px]"
+              className="pointer-events-none absolute right-full top-1/2 -translate-y-1/2 mr-4 min-w-[200px] sm:min-w-[270px]"
             >
-              <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150 flex items-center bg-black text-white rounded-md px-1 py-2 shadow-lg">
+              <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150 flex items-center justify-center bg-black text-white rounded-md pl-1 pr-0 py-2 shadow-lg">
                 <div className="font-normal" style={{fontSize: "clamp(10px, 1.5vw, 11.38px)", lineHeight: "100%", letterSpacing: "0px", verticalAlign: "middle", color: "#FFFFFF"}}>Estimates based on leading industry and academic data from Deloitte, Health and Safety Executive and peer reviewed studies.</div>
                 <div
                   aria-hidden
