@@ -217,7 +217,8 @@ export default function Header() {
         ref={mblRef}
         className={`fixed top-0 right-0 w-full sm:w-80 h-[100vh] z-[999] lg:hidden transform transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}
-          bg-white backdrop-blur-xl shadow-2xl border-l border-white/20`}
+          shadow-2xl border-l border-white/20`}
+        style={{ backgroundColor: '#ffffff' }}
       >
         {/* Close Button */}
         <button

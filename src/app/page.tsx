@@ -1,11 +1,9 @@
 "use client";
 
+import DeliverNHS from "@/components/features/client_side/landing_page/deliver_nhs";
 import FeatureSection from "@/components/features/client_side/landing_page/FeatureSection";
-import FeaturesShow from "@/components/features/client_side/landing_page/FeaturesShow";
 import HeroSection from "@/components/features/client_side/landing_page/HeroSection";
 import NhsSolutions from "@/components/features/client_side/landing_page/nhsSolutions";
-import PromessePrinciples from "@/components/features/client_side/landing_page/PromessePrinciples";
-import WhyWeBuilt from "@/components/features/client_side/landing_page/WhyWeBuilt";
 
 export default function HomePage() {
   return (
@@ -49,7 +47,10 @@ export default function HomePage() {
       </section>
 
 
+
       <NhsSolutions/>
+
+      <DeliverNHS/>
     </>
   );
 }
