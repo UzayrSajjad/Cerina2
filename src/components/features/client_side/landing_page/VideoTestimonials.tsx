@@ -62,16 +62,13 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
         {/* Play button overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-white bg-opacity-90 flex items-center justify-center hover:scale-110 transition-transform">
-            <svg
-              width="24"
-              height="28"
-              viewBox="0 0 24 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 0L24 14L0 28V0Z" fill="#121212" />
-            </svg>
+          <div className="flex items-center justify-center hover:scale-110 transition-transform">
+            <Image
+              src="/play_button.svg"
+              alt="Play button"
+              width={78}
+              height={56}
+            />
           </div>
         </div>
 
