@@ -48,7 +48,7 @@ const FaqSection: React.FC = () => {
                 style={{
                   fontFamily: "Montserrat",
                   fontWeight: 500,
-                  fontSize: "clamp(2rem, 2rem + 2vw, 3rem)",
+                  fontSize: "clamp(1.5rem, 1.5rem + 1.5vw, 2.5rem)",
                   lineHeight: "52.8px",
                   color: "#121212",
                 }}
@@ -63,7 +63,7 @@ const FaqSection: React.FC = () => {
                 style={{
                   fontFamily: "Montserrat",
                   fontWeight: 500,
-                  fontSize: "clamp(1rem, 1rem + 1vw, 1.5rem)",
+                  fontSize: "clamp(0.9rem, 0.9rem + 0.8vw, 1.3rem)",
                   lineHeight: "28.8px",
                   color: "#121212",
                 }}
@@ -76,7 +76,7 @@ const FaqSection: React.FC = () => {
                 style={{
                   fontFamily: "Montserrat",
                   fontWeight: 500,
-                  fontSize: "clamp(0.7rem, 0.7rem + 0.5vw, 1rem)",
+                  fontSize: "clamp(0.8rem, 0.8rem + 0.4vw, 1rem)",
                   lineHeight: "26px",
                   color: "#121212",
                 }}
@@ -89,7 +89,7 @@ const FaqSection: React.FC = () => {
                 style={{
                   fontFamily: "Montserrat",
                   fontWeight: 400,
-                  fontSize: "clamp(0.7rem, 0.7rem + 0.5vw, 1rem)",
+                  fontSize: "clamp(0.8rem, 0.8rem + 0.4vw, 1rem)",
                   lineHeight: "26px",
                   color: "#121212",
                 }}
@@ -131,7 +131,7 @@ const FaqSection: React.FC = () => {
                             style={{
                               fontFamily: "Montserrat",
                               fontWeight: 500,
-                              fontSize: "clamp(1rem, 1rem + 1vw, 1.5rem)",
+                              fontSize: "clamp(0.9rem, 0.9rem + 0.8vw, 1.3rem)",
                               lineHeight: "28.8px",
                               color: "#121212",
                               overflowWrap: "break-word",
@@ -146,7 +146,7 @@ const FaqSection: React.FC = () => {
                               style={{
                                 fontFamily: "Montserrat",
                                 fontWeight: 400,
-                                fontSize: "clamp(0.7rem, 0.7rem + 0.5vw, 1rem)",
+                                fontSize: "clamp(0.8rem, 0.8rem + 0.4vw, 1rem)",
                                 lineHeight: "26px",
                                 color: "#121212",
                                 overflowWrap: "break-word",

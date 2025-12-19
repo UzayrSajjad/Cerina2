@@ -8,7 +8,7 @@ import HeroSection from "@/components/features/client_side/landing_page/HeroSect
 import NhsSolutions from "@/components/features/client_side/landing_page/nhsSolutions";
 import VideoTestimonials from "@/components/features/client_side/landing_page/VideoTestimonials";
 import FaqSection from "@/components/features/client_side/landing_page/FaqSection";
-import { Video } from "lucide-react";
+import AIIntakeSection from "@/components/features/client_side/landing_page/AIIntakeSection";
 
 export default function HomePage() {
   return (
@@ -39,17 +39,7 @@ export default function HomePage() {
         />
       </section>
 
-      <section id="ai-intake" className="py-16">
-        <div className="w-full max-w-[1240px] mx-auto px-4">
-          <div className="flex justify-center items-center">
-            <img
-              src="home_page/AI_intake.svg"
-              alt="AI Intake"
-              className="w-full max-w-[960px] h-auto object-contain"
-            />
-          </div>
-        </div>
-      </section>
+      <AIIntakeSection />
 
 
 
