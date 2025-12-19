@@ -429,7 +429,9 @@ const VideoTestimonials: React.FC = () => {
         </p>
 
         {/* Video Carousel */}
-        <div className="relative overflow-hidden before:hidden sm:before:block before:absolute before:inset-y-0 before:left-0 before:w-[10%] before:bg-gradient-to-r before:from-white/70 before:to-transparent before:pointer-events-none before:z-10 after:hidden sm:after:block after:absolute after:inset-y-0 after:right-0 after:w-[10%] after:bg-gradient-to-l after:from-white/70 after:to-transparent after:pointer-events-none after:z-10">
+        <div 
+          className={`relative overflow-hidden ${activeIndex > 0 ? 'before:hidden sm:before:block before:absolute before:inset-y-0 before:left-0 before:w-[10%] before:bg-gradient-to-r before:from-white/70 before:to-transparent before:pointer-events-none before:z-10' : ''} ${activeIndex < videos.length - 1 ? 'after:hidden sm:after:block after:absolute after:inset-y-0 after:right-0 after:w-[10%] after:bg-gradient-to-l after:from-white/70 after:to-transparent after:pointer-events-none after:z-10' : ''}`}
+        >
           <div
             ref={carouselRef}
             className="flex gap-0 sm:gap-6 transition-transform duration-300 ease-out select-none"
