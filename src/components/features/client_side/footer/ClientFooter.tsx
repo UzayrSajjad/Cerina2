@@ -1,7 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Footer() {
+  const [selectedVideo, setSelectedVideo] = useState<{
+    videoUrl: string;
+    name: string;
+    role: string;
+  } | null>(null);
+
+  const handleCloseModal = () => {
+    setSelectedVideo(null);
+  };
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      handleCloseModal();
+    }
+  };
+
+  const videos = [
+    {
+      name: "Casey Lebron",
+      role: "PATIENT",
+      videoUrl: "https://www.youtube.com/embed/pIwfRuNw5tE",
+      thumbnailUrl: "https://img.youtube.com/vi/pIwfRuNw5tE/maxresdefault.jpg",
+    },
+    {
+      name: "Katie Foden",
+      role: "JOONAS",
+      videoUrl: "https://www.youtube.com/embed/2sUWlhWH_kc",
+      thumbnailUrl: "https://img.youtube.com/vi/2sUWlhWH_kc/maxresdefault.jpg",
+    },
+  ];
   return (
     <footer className="w-full bg-[#FBF9F6] border-t border-[#EFEFEF] py-12">
       <div className="max-w-[1240px] mx-auto px-6">
@@ -20,7 +53,8 @@ export default function Footer() {
             </h3>
 
             <div className="mb-6">
-              <button
+              <Link
+                href="/waitlist"
                 className="inline-block bg-[#1A140E] text-white border-2 border-[#1A140E] rounded-[16px] px-[32px] py-[16px] font-medium leading-[18px] tracking-[-0.16px] text-center hover:opacity-100 cursor-pointer"
                 style={{
                   width: "186px",
@@ -31,13 +65,14 @@ export default function Footer() {
                 }}
               >
                 Book a Demo
-              </button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-6">
               <div
-                className="bg-[#ECEFF3]/70 rounded-[15px] p-4 shadow-sm border border-[#F1F1F3] flex flex-col justify-between"
+                className="bg-[#ECEFF3]/70 rounded-[15px] p-4 shadow-sm border border-[#F1F1F3] flex flex-col justify-between cursor-pointer"
                 style={{ width: "217px", height: "172px" }}
+                onClick={() => setSelectedVideo(videos[0])}
               >
                 <div className="mb-2 flex justify-between items-center">
                   <span
@@ -62,8 +97,9 @@ export default function Footer() {
               </div>
 
               <div
-                className="bg-[#ECEFF3]/70 rounded-[15px] p-4 shadow-sm border border-[#F1F1F3] flex flex-col justify-between"
+                className="bg-[#ECEFF3]/70 rounded-[15px] p-4 shadow-sm border border-[#F1F1F3] flex flex-col justify-between cursor-pointer"
                 style={{ width: "217px", height: "172px" }}
+                onClick={() => setSelectedVideo(videos[1])}
               >
                 <div className="mb-2 flex justify-between items-center">
                   <span
@@ -111,16 +147,16 @@ export default function Footer() {
                     <Link href="/">Home</Link>
                   </li>
                   <li>
-                    <Link href="/about">About Us</Link>
+                    <Link href="/about-us">About Us</Link>
                   </li>
                   <li>
                     <Link href="/how-it-works">How it Works</Link>
                   </li>
                   <li>
-                    <Link href="/business">Business Solutions</Link>
+                    <Link href="/business-solution">Business Solutions</Link>
                   </li>
                   <li>
-                    <Link href="/individual">Individual Solutions</Link>
+                    <Link href="/individual-solution">Individual Solutions</Link>
                   </li>
                 </ul>
               </div>
@@ -144,7 +180,7 @@ export default function Footer() {
                     <Link href="/case-studies">Case Studies</Link>
                   </li>
                   <li>
-                    <Link href="/research">Research</Link>
+                    <Link href="/resource">Research</Link>
                   </li>
                   <li>
                     <Link href="/blogs">Blogs</Link>
@@ -229,6 +265,103 @@ export default function Footer() {
             />
           </div>
         </div>
+
+        {/* Video Modal */}
+        {selectedVideo && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4"
+            onClick={handleBackdropClick}
+          >
+            <div className="relative w-full max-w-4xl">
+              {/* Close button */}
+              <button
+                onClick={handleCloseModal}
+                className="absolute -top-12 right-0 w-10 h-10 flex items-center justify-center bg-white rounded-full hover:bg-gray-200 transition-colors z-10"
+                aria-label="Close video"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15 5L5 15M5 5L15 15"
+                    stroke="#121212"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </button>
+
+              {/* Video Container */}
+              <div
+                className="relative bg-black rounded-lg overflow-hidden"
+                style={{
+                  borderRadius: "13.79px",
+                }}
+              >
+                <iframe
+                  src={`${selectedVideo.videoUrl}?autoplay=1&mute=1`}
+                  className="w-full h-auto"
+                  style={{
+                    maxHeight: "80vh",
+                    aspectRatio: "16/9",
+                  }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+
+                {/* Name tag */}
+                <div
+                  className="absolute flex items-center bg-white"
+                  style={{
+                    width: "141.29px",
+                    height: "48.92px",
+                    bottom: "60px",
+                    left: "20px",
+                    gap: "8.82px",
+                    borderRadius: "4.07px",
+                    paddingLeft: "6.78px",
+                  }}
+                >
+                  <img
+                    src="/home_page/video_tag_icon.svg"
+                    alt="tag icon"
+                    className="w-6 h-6"
+                  />
+                  <div>
+                    <p
+                      style={{
+                        fontFamily: "Montserrat",
+                        fontWeight: 600,
+                        fontSize: "12.68px",
+                        lineHeight: "16.07px",
+                        letterSpacing: "0px",
+                        color: "#121212",
+                      }}
+                    >
+                      {selectedVideo.name}
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: "Montserrat",
+                        fontWeight: 500,
+                        fontSize: "5.76px",
+                        lineHeight: "16.07px",
+                        letterSpacing: "0px",
+                        color: "#121212",
+                      }}
+                    >
+                      {selectedVideo.role}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </footer>
   );

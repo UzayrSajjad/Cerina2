@@ -105,7 +105,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
 
               {buttonText && (
                 <button
-                  className="mt-11 w-[223px] h-[54px] px-[32px] py-[16px] rounded-[16px] bg-[#D4C7E5] border-2 border-[#D4C7E3] text-[#18161A] font-medium hover:bg-[#D4C7E5]/90 transition-colors duration-200 text-center cursor-pointer"
+                  className="group mt-11 w-[223px] h-[54px] px-[32px] py-[16px] rounded-[16px] bg-[#D4C7E5] border-2 border-[#D4C7E3] text-[#18161A] font-medium hover:bg-[#D4C7E5]/90 transition-colors duration-200 text-center cursor-pointer"
                   style={{
                     fontSize: "clamp(0.9rem, 2.25vw, 1.125rem)",
                     lineHeight: "clamp(0.9rem, 2.25vw, 1.125rem)",
@@ -114,6 +114,11 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
                   }}
                 >
                   {buttonText}
+                  <span className="ml-2 transition-all duration-200 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 inline-block">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 3L13 8L8 13M13 8H3" stroke="#18161A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
                 </button>
               )}
             </div>

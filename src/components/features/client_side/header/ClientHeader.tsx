@@ -91,16 +91,12 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-3 xl:gap-4 2xl:gap-6 ml-auto text-gray-800 font-normal text-[0.8rem] xl:text-[0.875rem] leading-[1.25rem]">
            
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("about");
-              }}
+            <Link
+              href="/about-us"
               className="whitespace-nowrap"
             >
               About us
-            </a>
+            </Link>
               <div className="relative group">
                 <a
                   href="#"
@@ -120,22 +116,18 @@ export default function Header() {
                 <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[180px] bg-white rounded-lg shadow-lg z-50">
                   <div className="py-2">
                   {whoWeServe.map((item) => (
-                    <a
+                    <Link
                       key={item.id}
                       className={`flex items-center gap-3 px-4 py-2 ${item.hoverClass || 'hover:bg-gray-100'} transition-colors text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-800 cursor-pointer`}
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setIsOpen(false);
-                          scrollToId(item.id);
-                        }}
-                      >
-                        <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
-                          <img src={item.icon} alt={item.label} className="w-4 h-4" />
-                        </span>
-                        {item.label}
-                      </a>
-                    ))}
+                      href={item.id === 'organisations' ? '/business-solution' : item.id === 'individuals' ? '/individual-solution' : '/resource'}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
+                        <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                      </span>
+                      {item.label}
+                    </Link>
+                  ))}
                   </div>
                 </div>
               </div>
@@ -158,21 +150,17 @@ export default function Header() {
               <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[160px] bg-white rounded-lg shadow-lg z-50">
                 <div className="py-2">
                   {products.map((item) => (
-                    <a
+                    <Link
                       key={item.id}
                       className={`flex items-center gap-3 px-4 py-2 ${item.hoverClass || 'hover:bg-gray-100'} transition-colors text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-800 cursor-pointer`}
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsOpen(false);
-                        scrollToId(item.id);
-                      }}
+                      href="/platforms"
+                      onClick={() => setIsOpen(false)}
                     >
                       <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
                         <img src={item.icon} alt={item.label} className="w-4 h-4" />
                       </span>
                       {item.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -190,7 +178,7 @@ export default function Header() {
             
             <a href="/blogs" className="whitespace-nowrap">Blogs</a>
             <Link
-              href="/waitlist"
+              href="/contact"
               className="ml-2 xl:ml-4 h-[40px] xl:h-[48px] 2xl:h-[60px] px-[18px] xl:px-[24px] 2xl:px-[35px] py-[10px] xl:py-[12px] 2xl:py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[6px] xl:gap-[8px] 2xl:gap-[10px] text-xs xl:text-sm 2xl:text-base whitespace-nowrap"
             >
               <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
@@ -232,17 +220,13 @@ export default function Header() {
           <X size={20} />
         </button>
         <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-6 text-gray-800 px-4">
-          <a
-            href="#"
+          <Link
+            href="/about-us"
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToId("about");
-              setIsOpen(false);
-            }}
+            onClick={() => setIsOpen(false)}
           >
             About us
-          </a>
+          </Link>
           <button
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors flex items-center gap-1"
             onClick={() => {
@@ -256,19 +240,15 @@ export default function Header() {
           {isWhoWeServeOpen && (
             <div className="ml-4 space-y-2">
               {whoWeServe.map((item) => (
-                <a
+                <Link
                   key={item.id}
                   className="flex items-center gap-2 px-2 py-1 text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-700 hover:text-[#5E005E] transition-colors"
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsOpen(false);
-                    scrollToId(item.id);
-                  }}
+                  href={item.id === 'organisations' ? '/business-solution' : item.id === 'individuals' ? '/individual-solution' : '/resource'}
+                  onClick={() => setIsOpen(false)}
                 >
                   <img src={item.icon} alt={item.label} className="w-4 h-4" />
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           )}
@@ -285,33 +265,25 @@ export default function Header() {
           {isProductsOpen && (
             <div className="ml-4 space-y-2">
               {products.map((item) => (
-                <a
+                <Link
                   key={item.id}
                   className="flex items-center gap-2 px-2 py-1 text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-700 hover:text-[#5E005E] transition-colors"
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsOpen(false);
-                    scrollToId(item.id);
-                  }}
+                  href="/platforms"
+                  onClick={() => setIsOpen(false)}
                 >
                   <img src={item.icon} alt={item.label} className="w-4 h-4" />
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           )}
-          <a
-            href="#"
+          <Link
+            href="/resource"
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToId("research");
-              setIsOpen(false);
-            }}
+            onClick={() => setIsOpen(false)}
           >
             Research
-          </a>
+          </Link>
           <a
             href="/blogs"
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
@@ -320,7 +292,7 @@ export default function Header() {
             Blogs
           </a>
           <Link
-            href="/waitlist"
+            href="/contact"
             className="px-[1rem] sm:px-[1.5rem] py-[0.5rem] sm:py-[0.75rem] rounded-md bg-[#DDAC7C] text-[#18161A] font-semibold hover:bg-[#C99B6A] transition-colors duration-200 text-sm sm:text-base flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >

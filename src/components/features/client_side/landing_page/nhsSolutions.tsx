@@ -16,10 +16,19 @@ export default function NhsSolutions() {
   // Map slider (0-100) to a headline number (0 - 995000)
   const headlineNumber = useMemo(() => Math.round((value / 100) * 995000), [value]);
 
-  // Derived stats (same formulas for both tabs, labels change)
-  const statEstimated = useMemo(() => Math.round(headlineNumber * 0.1667), [headlineNumber]);
-  const statSaving = useMemo(() => Math.round(headlineNumber * 4.3), [headlineNumber]);
-  const statROI = useMemo(() => Math.round(headlineNumber * 1690), [headlineNumber]);
+  // Derived stats (different formulas for NHS and business)
+  const statEstimated = useMemo(() => {
+    const multiplier = activeTab === "business" ? 0.2 : 0.1667;
+    return Math.round(headlineNumber * multiplier);
+  }, [headlineNumber, activeTab]);
+  const statSaving = useMemo(() => {
+    const multiplier = activeTab === "business" ? 5 : 4.3;
+    return Math.round(headlineNumber * multiplier);
+  }, [headlineNumber, activeTab]);
+  const statROI = useMemo(() => {
+    const multiplier = activeTab === "business" ? 2000 : 1690;
+    return Math.round(headlineNumber * multiplier);
+  }, [headlineNumber, activeTab]);
 
   // Slider background gradient for filled track
   const sliderBackground = `linear-gradient(90deg, #111 0%, #111 ${value}%, #ffffff ${value}%, #ffffff 100%)`;

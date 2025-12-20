@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 
 export default function HeroSection() {
   const [email, setEmail] = useState("");
+  const [isPaused, setIsPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const handleSubscribe = (e: React.FormEvent) => {
@@ -31,12 +32,14 @@ export default function HeroSection() {
     let animationId: number;
 
     const animate = () => {
-      position -= speed;
-      const halfWidth = track.scrollWidth / 2;
-      if (position <= -halfWidth) {
-        position += halfWidth; // instead of = 0, add halfWidth to continue seamlessly
+      if (!isPaused) {
+        position -= speed;
+        const halfWidth = track.scrollWidth / 2;
+        if (position <= -halfWidth) {
+          position += halfWidth; // instead of = 0, add halfWidth to continue seamlessly
+        }
+        track.style.transform = `translateX(${position}px)`;
       }
-      track.style.transform = `translateX(${position}px)`;
       animationId = requestAnimationFrame(animate);
     };
 
@@ -69,7 +72,7 @@ export default function HeroSection() {
             <div className="relative z-10 flex items-center min-h-full">
               <div className="ml-4 md:ml-8 lg:ml-20 xl:ml-28 flex items-center gap-8 w-full max-w-7xl mx-auto">
                 <div
-                  className="flex-1 pt-6 pr-6 pb-6 md:pt-8 md:pr-8 md:pb-8 lg:pt-10 lg:pr-10 lg:pb-10 max-w-[634px] pl-0"
+                  className="flex-1 pt-6 pr-6 pb-12 md:pt-8 md:pr-8 md:pb-16 lg:pt-10 lg:pr-10 lg:pb-20 max-w-[634px] pl-0"
                   style={{
                     borderColor: "#D4D4D4",
                    
@@ -78,7 +81,7 @@ export default function HeroSection() {
                 >
                   {/* Main Heading */}
                   <h1
-                    className="mb-4 md:mb-6 font-semibold"
+                    className="mb-2 md:mb-4 font-semibold"
                     style={{
                       color: "#121212",
                       fontSize: "clamp(1.62rem, 8vw, 2.835rem)",
@@ -92,7 +95,7 @@ export default function HeroSection() {
 
                   {/* Subtitle */}
                   <p
-                    className="text-[#121212] mb-6 md:mb-8 font-medium"
+                    className="text-[#121212] mb-4 md:mb-6 font-medium"
                     style={{
                       fontSize: "clamp(0.81rem, 3vw, 0.911rem)",
                       lineHeight: "clamp(1.5rem, 3vw, 1.6875rem)",
@@ -103,7 +106,7 @@ export default function HeroSection() {
                   </p>
 
                   {/* Email Subscription Form */}
-                  <form onSubmit={handleSubscribe} className="space-y-3">
+                  <form onSubmit={handleSubscribe} className="space-y-1">
                     <div className="flex flex-col sm:flex-row gap-2 ">
                       
                       <button
@@ -142,6 +145,8 @@ export default function HeroSection() {
                   <div
                     className="flex gap-4 md:gap-8"
                     ref={trackRef}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
                   >
                     {sliderIcons.concat(sliderIcons).concat(sliderIcons).concat(sliderIcons).map((icon, index) => (
                       <img
