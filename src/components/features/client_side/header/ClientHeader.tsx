@@ -215,10 +215,9 @@ export default function Header() {
       {/* Slide Menu */}
       <div
         ref={mblRef}
-        className={`fixed top-0 right-0 w-full sm:w-80 h-[100vh] z-[999] lg:hidden transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 right-0 w-full sm:w-80 h-[100vh] z-[999] lg:hidden transform transition-transform duration-300 ease-in-out bg-white
           ${isOpen ? "translate-x-0" : "translate-x-full"}
           shadow-2xl border-l border-white/20`}
-        style={{ backgroundColor: '#ffffff' }}
       >
         {/* Close Button */}
         <button

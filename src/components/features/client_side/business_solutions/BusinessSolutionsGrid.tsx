@@ -45,11 +45,11 @@ export default function BusinessSolutionsGrid() {
                 {c.title}
               </div>
 
-              <div className="flex-1 w-full flex items-end justify-center mt-4">
+              <div className="flex-1 w-full relative mt-4">
                 <img
                   src={c.image}
                   alt={c.title}
-                  className="max-w-full h-auto object-contain rounded-bl-[14px] w-11/12 sm:w-10/12 md:w-9/12"
+                  className="absolute -bottom-4 -left-4 w-[70%] sm:w-[75%] md:w-[80%] lg:w-[85%] xl:w-[90%] h-auto object-contain rounded-bl-[14px]"
                 />
               </div>
             </article>
