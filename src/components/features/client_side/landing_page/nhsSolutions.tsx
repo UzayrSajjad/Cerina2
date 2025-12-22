@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState, useRef, useEffect } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
 
 // ============================================
 // CORE CONSTANTS (CMS-editable defaults)
@@ -351,17 +351,47 @@ export default function NhsSolutions() {
         <div className="my-8">
           <div className="w-full px-4">
             <div
-              className="relative flex items-center"
+              className="relative flex items-center cursor-pointer"
               ref={sliderRef}
-              onMouseDown={() => {
+              onMouseDown={(e) => {
                 setIsDragging(true);
                 setHasDragged(false);
+                // Immediately update value on first click
+                if (sliderRef.current) {
+                  const rect = sliderRef.current.getBoundingClientRect();
+                  const x = e.clientX - rect.left;
+                  const percentage = Math.min(Math.max(x / rect.width, 0), 1);
+                  setValue(percentage * 100);
+                }
               }}
-              onTouchStart={() => {
+              onTouchStart={(e) => {
                 setIsDragging(true);
                 setHasDragged(false);
+                // Immediately update value on first touch
+                if (sliderRef.current && e.touches[0]) {
+                  const rect = sliderRef.current.getBoundingClientRect();
+                  const x = e.touches[0].clientX - rect.left;
+                  const percentage = Math.min(Math.max(x / rect.width, 0), 1);
+                  setValue(percentage * 100);
+                }
               }}
             >
+              {/* Track background */}
+              <div
+                className="w-full h-3 rounded-full"
+                style={{ background: sliderBackground }}
+              />
+
+              {/* Thumb indicator */}
+              <div
+                aria-hidden
+                style={{ left: `calc(${value}% - 16px)` }}
+                className="absolute top-1/2 -translate-y-1/2 w-8 h-8 pointer-events-none"
+              >
+                <img src="/home_page/slider.svg" alt="slider" className="w-full h-full object-contain" />
+              </div>
+
+              {/* Hidden native input for accessibility */}
               <input
                 aria-label={activeTab === "business" ? "employees slider" : "patients slider"}
                 type="range"
@@ -369,25 +399,8 @@ export default function NhsSolutions() {
                 max={100}
                 value={value}
                 onChange={(e) => setValue(Number(e.target.value))}
-                style={{
-                  WebkitAppearance: "none",
-                  appearance: "none",
-                  width: "100%",
-                  height: "12px",
-                  borderRadius: 9999,
-                  background: sliderBackground,
-                }}
-                className="range-none pointer-events-none"
+                className="sr-only"
               />
-
-              {/* Thumb indicator */}
-              <div
-                aria-hidden
-                style={{ left: `calc(${value}% - 16px)` }}
-                className="absolute top-1/2 -translate-y-1/2 w-8 h-8"
-              >
-                <img src="/home_page/slider.svg" alt="slider" className="w-full h-full object-contain" />
-              </div>
             </div>
           </div>
         </div>
