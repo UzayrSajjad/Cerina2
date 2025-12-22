@@ -351,9 +351,10 @@ export default function NhsSolutions() {
         <div className="my-8">
           <div className="w-full px-4">
             <div
-              className="relative flex items-center cursor-pointer"
+              className="relative flex items-center cursor-pointer select-none"
               ref={sliderRef}
               onMouseDown={(e) => {
+                e.preventDefault(); // Prevent text selection
                 setIsDragging(true);
                 setHasDragged(false);
                 // Immediately update value on first click
