@@ -14,14 +14,14 @@ export default function Header() {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   const whoWeServe = [
-    { id: 'organisations', label: 'Organisations', icon: '/home_page/icon_building.svg', hoverClass: 'hover:bg-gray-100' },
-    { id: 'individuals', label: 'Individuals', icon: '/home_page/icon_person.svg', hoverClass: 'hover:bg-gray-100' },
+    { id: 'organisations', label: 'Organisations', icon: '/home_page/icon_building.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/organisations.png' },
+    { id: 'individuals', label: 'Individuals', icon: '/home_page/icon_person.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/individuals.png' },
     { id: 'universities', label: 'Universities', icon: '/home_page/icon_university.svg', hoverClass: 'hover:bg-gray-100' },
   ];
 
   const products = [
-    { id: 'cerina-app', label: 'Cerina App', icon: '/home_page/icon_spinner.svg', hoverClass: 'hover:bg-gray-100' },
-    { id: 'ai-patient-flow', label: 'AI Patient-Flow', icon: '/home_page/icon_chat.svg', hoverClass: 'hover:bg-gray-100' },
+    { id: 'cerina-app', label: 'Cerina App', icon: '/home_page/icon_spinner.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/cerina-logo.png' },
+    { id: 'ai-patient-flow', label: 'AI Patient-Flow', icon: '/home_page/icon_chat.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/ai-patient-flow.png' },
   ];
 
   const scrollToId = (id: string) => {
@@ -114,7 +114,7 @@ export default function Header() {
                 </a>
 
                 {/* Dropdown - appears on hover */}
-                <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[180px] bg-white rounded-lg shadow-lg z-50">
+                <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[280px] bg-white rounded-lg shadow-lg z-50">
                   <div className="py-2">
                   {whoWeServe.map((item) => (
                     <a
@@ -125,8 +125,12 @@ export default function Header() {
                       rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
                     >
-                      <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
-                        <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                      <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
+                        {item.image ? (
+                          <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                        ) : (
+                          <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                        )}
                       </span>
                       {item.label}
                     </a>
@@ -160,8 +164,12 @@ export default function Header() {
                       rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
                     >
-                      <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
-                        <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                      <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
+                        {item.image ? (
+                          <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                        ) : (
+                          <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                        )}
                       </span>
                       {item.label}
                     </a>
@@ -248,13 +256,19 @@ export default function Header() {
               {whoWeServe.map((item) => (
                 <a
                   key={item.id}
-                  className="flex items-center gap-2 px-2 py-1 text-[0.875rem] text-gray-700 hover:text-[#5E005E] transition-colors"
+                  className="flex items-center gap-3 px-2 py-1 text-[0.875rem] text-gray-700 hover:text-[#5E005E] transition-colors"
                   href={item.id === 'organisations' ? 'https://cerinahealth.com/organisations' : item.id === 'individuals' ? 'https://cerinahealth.com/app' : 'https://cerinahealth.com/universities'}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                 >
-                  <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                  <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
+                    {item.image ? (
+                      <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                    ) : (
+                      <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                    )}
+                  </span>
                   {item.label}
                 </a>
               ))}
@@ -275,13 +289,19 @@ export default function Header() {
               {products.map((item) => (
                 <a
                   key={item.id}
-                  className="flex items-center gap-2 px-2 py-1 text-[0.875rem] text-gray-700 hover:text-[#5E005E] transition-colors"
+                  className="flex items-center gap-3 px-2 py-1 text-[0.875rem] text-gray-700 hover:text-[#5E005E] transition-colors"
                   href={item.id === 'cerina-app' ? 'https://cerinahealth.com/app' : 'https://cerinahealth.com/ai-triaging'}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                 >
-                  <img src={item.icon} alt={item.label} className="w-4 h-4" />
+                  <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
+                    {item.image ? (
+                      <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                    ) : (
+                      <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                    )}
+                  </span>
                   {item.label}
                 </a>
               ))}
