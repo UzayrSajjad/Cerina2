@@ -179,13 +179,15 @@ export default function Header() {
             </a>
 
             <a href="https://blog.cerinahealth.com/" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap hover:text-gray-950 transition-colors">Blog</a>
-            <Link
-              href="/contact"
+            <a
+              href="https://cerinahealth.com/contact"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-2 xl:ml-4 h-[40px] xl:h-[48px] 2xl:h-[60px] px-[18px] xl:px-[24px] 2xl:px-[35px] py-[10px] xl:py-[12px] 2xl:py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[6px] xl:gap-[8px] 2xl:gap-[10px] text-xs xl:text-sm 2xl:text-base whitespace-nowrap hover:bg-[#DDAC7C] transition-colors duration-200"
             >
               <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
               Contact Us
-            </Link>
+            </a>
           </nav>
         </div>
       </header>
@@ -303,14 +305,16 @@ export default function Header() {
           >
             Blog
           </a>
-          <Link
-            href="/contact"
+          <a
+            href="https://cerinahealth.com/contact"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-[1rem] sm:px-[1.5rem] py-[0.5rem] sm:py-[0.75rem] rounded-md bg-[#DDAC7C] text-[#18161A] font-semibold hover:bg-[#C99B6A] transition-colors duration-200 text-sm sm:text-base flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
             <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3" />
             Contact Us
-          </Link>
+          </a>
         </div>
       </div>
     </>

@@ -282,7 +282,15 @@ const VideoTestimonials: React.FC = () => {
     if (window.innerWidth < 640) {
       return `translateX(-${activeIndex * 100}%)`;
     } else {
-      return `translateX(calc(0% - ${activeIndex * (cardWidth + gap)}px))`;
+      // Prevent overscroll / whitespace on the right by clamping shift to the max possible
+      const containerWidth = carouselRef.current?.parentElement?.clientWidth ?? window.innerWidth;
+      const itemWidth = cardWidth;
+      const totalWidth = videos.length * itemWidth + Math.max(0, videos.length - 1) * gap;
+      const maxShift = Math.max(0, totalWidth - containerWidth);
+      const desiredShift = activeIndex * (itemWidth + gap);
+      const shift = Math.min(desiredShift, maxShift);
+
+      return `translateX(calc(0% - ${shift}px))`;
     }
   };
 
