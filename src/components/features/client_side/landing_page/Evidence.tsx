@@ -76,7 +76,7 @@ const Evidence: React.FC = () => {
 
   return (
     <div
-      className="bg-[#EEE7DB] overflow-hidden w-full max-w-[1242px] mx-auto"
+      className="relative bg-[#EEE7DB] overflow-hidden w-full max-w-[1242px] mx-auto"
       style={{
         borderRadius: "40px",
         padding: "30px 40px",
@@ -233,6 +233,42 @@ const Evidence: React.FC = () => {
                   />
                 </button>
               ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom-left decorative icon with tooltip (icon UI kept unchanged; tooltip appears to the right) */}
+      <div className="absolute left-14 bottom-12 sm:left-20 sm:bottom-16">
+        <div className="group relative" tabIndex={0}>
+          {/* keep icon UI as a plain image */}
+          <img
+            src="/home_page/review-icon.png"
+            alt="review icon"
+            className="w-8 h-8 sm:w-10 sm:h-10"
+          />
+
+          {/* Tooltip — appears on the right side of the icon */}
+          <div
+            role="status"
+            className="pointer-events-none absolute left-full top-1/2 -translate-y-1/2 ml-4 min-w-[200px] sm:min-w-[280px] z-10"
+          >
+            <div className="opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150 bg-black text-white rounded-md px-4 py-3 shadow-lg relative">
+              <div
+                className="font-normal"
+                style={{
+                  fontSize: "clamp(11px, 1.5vw, 13px)",
+                  lineHeight: "150%",
+                  color: "#FFFFFF",
+                }}
+              >
+                Net savings and ROI figures represent estimated ranges based on modelling and early implementation data.
+              </div>
+              {/* Arrow pointing to the icon (leftward) */}
+              <div
+                aria-hidden
+                className="w-0 h-0 border-[8px] border-transparent border-r-black absolute left-[-14px] top-1/2 -translate-y-1/2"
+              />
             </div>
           </div>
         </div>

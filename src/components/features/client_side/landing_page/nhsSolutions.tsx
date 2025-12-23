@@ -175,10 +175,9 @@ export default function NhsSolutions() {
   // Slider background gradient for filled track
   const sliderBackground = `linear-gradient(90deg, #111 0%, #111 ${value}%, #ffffff ${value}%, #ffffff 100%)`;
 
-  // Methodology text based on tab
-  const methodologyText = activeTab === "nhs"
-    ? "Savings include direct pathway saving per user (£120), conservative clinician time released (1.67 hrs/user @ £50/hr), service deflection, and modest prescribing savings; ROI = savings ÷ programme cost. Engagement rate (61%) used to show 'patients affected'. Figures indicative; adjust coefficients in CMS."
-    : "Employees affected = 21% default (Burnout Report 2025). Productivity saving uses your inputs for hours lost and salary/day rate, with a conservative 20% reduction and 50% adoption. ROI = savings ÷ programme cost. Figures indicative.";
+  // Methodology/tooltip text (single-source sentence per design)
+  const methodologyText =
+    "Estimates based on leading industry and academic data from Deloitte, Health and Safety Executive and peer reviewed studies.";
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -590,8 +589,6 @@ export default function NhsSolutions() {
                     color: "#FFFFFF",
                   }}
                 >
-                  <strong>Methodology:</strong>
-                  <br />
                   {methodologyText}
                 </div>
                 <div
