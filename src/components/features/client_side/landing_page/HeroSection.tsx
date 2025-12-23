@@ -113,7 +113,7 @@ export default function HeroSection() {
                       
                       <button
                         type="submit"
-                        className="w-[176px] h-[48px] px-[30px] py-[15px] rounded-[16px] bg-[#DDAC7C] border-2 border-[#DDAC7C] text-[#18161A] font-medium hover:bg-[#DDAC7C]/90 transition-colors duration-200 whitespace-nowrap text-center cursor-pointer"
+                        className="w-[176px] h-[48px] px-[30px] py-[15px] rounded-[16px] bg-[#DDAC7C] border-2 border-[#DDAC7C] text-[#18161A] font-medium hover:bg-[#eda965] hover:border-[#eda965] transition-colors duration-200 whitespace-nowrap text-center cursor-pointer"
                         style={{
                           fontSize: "clamp(0.74rem, 1.7vw, 0.85rem)",
                           lineHeight: "clamp(0.74rem, 1.7vw, 0.85rem)",

@@ -21,13 +21,33 @@ const Evidence: React.FC = () => {
     },
     {
       description:
-        "The app has been transformative for my mental health journey. The AI-powered support feels personal and genuinely helpful, making it easy to engage with the content daily.",
-      author: "Sarah",
+        "The app suggested doing some of the breathing techniques which normally I just would not put aside time to do because I'm so busy at work. It almost gives me a bit of strength to then feel that I can say: 'This is what I've been feeling, and this is what I'm doing about it.'",
+      author: "Hannah",
     },
     {
       description:
-        "I've tried many mental health apps, but this one stands out. The evidence-based approach combined with the accessibility makes it my go-to resource for managing stress and anxiety.",
-      author: "Michael",
+        "To be quite frank, other applications feel less therapeutic—they are full of 'shiny things' competing for your attention. Cerina is different. It is an actual course to follow with clear objectives. It's rare to see an evidence-based therapeutic app like this in the market. It's a place to go for real knowledge, helping you understand the basics of how your mind works to find a rational way forward.",
+      author: "RCT participant",
+    },
+    {
+      description:
+        "When you have a lot of stress, you need an immediate reply rather than having to read through content yourself. That's why the AI chatbot (Hedgie) is so innovative. It gives you immediate feedback in those urgent moments when you just need to express something.",
+      author: "RCT participant",
+    },
+    {
+      description:
+        "The fact that I could access support without having to speak to anyone first made me feel totally in control. I didn't feel like anyone would be judging me; I just clicked onto it. It's the sort of thing you can just pick up and use at any time to talk about your feelings when it feels right for you.",
+      author: "Lizzie",
+    },
+    {
+      description:
+        "I've used the chatbot to understand different kinds of mental health terminology I haven't heard before. If someone uses a term I don't know, I can quickly ask the AI what it means. It's a great educational tool.",
+      author: "Michelle",
+    },
+    {
+      description:
+        "I've been using the muscle relaxation video every evening before bed — it really helps release all the tension in my body. I used to need a long hot bath and deep heat every night, but now I don't. It's changed my life.",
+      author: "Tracy",
     },
   ];
 

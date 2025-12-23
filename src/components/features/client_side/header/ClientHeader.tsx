@@ -90,19 +90,20 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-3 xl:gap-4 2xl:gap-6 ml-auto text-gray-800 font-normal text-[0.8rem] xl:text-[0.875rem] leading-[1.25rem]">
-           
-            <Link
-              href="/about-us"
-              className="whitespace-nowrap"
+
+            <a
+              href="https://cerinahealth.com/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap hover:text-gray-950 transition-colors"
             >
               About us
-            </Link>
+            </a>
               <div className="relative group">
                 <a
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToId("features");
                   }}
                   className="flex items-center gap-1 whitespace-nowrap"
                   aria-expanded="false"
@@ -116,17 +117,19 @@ export default function Header() {
                 <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[180px] bg-white rounded-lg shadow-lg z-50">
                   <div className="py-2">
                   {whoWeServe.map((item) => (
-                    <Link
+                    <a
                       key={item.id}
                       className={`flex items-center gap-3 px-4 py-2 ${item.hoverClass || 'hover:bg-gray-100'} transition-colors text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-800 cursor-pointer`}
-                      href={item.id === 'organisations' ? '/business-solution' : item.id === 'individuals' ? '/individual-solution' : '/resource'}
+                      href={item.id === 'organisations' ? 'https://cerinahealth.com/organisations' : item.id === 'individuals' ? 'https://cerinahealth.com/app' : 'https://cerinahealth.com/universities'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
                     >
                       <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
                         <img src={item.icon} alt={item.label} className="w-4 h-4" />
                       </span>
                       {item.label}
-                    </Link>
+                    </a>
                   ))}
                   </div>
                 </div>
@@ -136,7 +139,6 @@ export default function Header() {
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollToId("research");
                 }}
                 className="flex items-center gap-1 whitespace-nowrap"
                 aria-expanded="false"
@@ -150,36 +152,36 @@ export default function Header() {
               <div className="pointer-events-none opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-150 absolute top-full left-1/2 -translate-x-1/2 mt-3 min-w-[160px] bg-white rounded-lg shadow-lg z-50">
                 <div className="py-2">
                   {products.map((item) => (
-                    <Link
+                    <a
                       key={item.id}
                       className={`flex items-center gap-3 px-4 py-2 ${item.hoverClass || 'hover:bg-gray-100'} transition-colors text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-800 cursor-pointer`}
-                      href="/platforms"
+                      href={item.id === 'cerina-app' ? 'https://cerinahealth.com/app' : 'https://cerinahealth.com/ai-triaging'}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
                     >
                       <span className="w-8 h-8 rounded-md border flex items-center justify-center bg-white">
                         <img src={item.icon} alt={item.label} className="w-4 h-4" />
                       </span>
                       {item.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>
             </div>
             <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToId("research");
-              }}
-              className="whitespace-nowrap"
+              href="https://cerinahealth.com/research"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap hover:text-gray-950 transition-colors"
             >
              Research
             </a>
-            
-            <a href="/blogs" className="whitespace-nowrap">Blogs</a>
+
+            <a href="https://blog.cerinahealth.com/" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap hover:text-gray-950 transition-colors">Blog</a>
             <Link
               href="/contact"
-              className="ml-2 xl:ml-4 h-[40px] xl:h-[48px] 2xl:h-[60px] px-[18px] xl:px-[24px] 2xl:px-[35px] py-[10px] xl:py-[12px] 2xl:py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[6px] xl:gap-[8px] 2xl:gap-[10px] text-xs xl:text-sm 2xl:text-base whitespace-nowrap"
+              className="ml-2 xl:ml-4 h-[40px] xl:h-[48px] 2xl:h-[60px] px-[18px] xl:px-[24px] 2xl:px-[35px] py-[10px] xl:py-[12px] 2xl:py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[6px] xl:gap-[8px] 2xl:gap-[10px] text-xs xl:text-sm 2xl:text-base whitespace-nowrap hover:bg-[#DDAC7C] transition-colors duration-200"
             >
               <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
               Contact Us
@@ -220,13 +222,15 @@ export default function Header() {
           <X size={20} />
         </button>
         <div className="flex flex-col items-center justify-center h-full space-y-4 sm:space-y-6 text-gray-800 px-4">
-          <Link
-            href="/about-us"
+          <a
+            href="https://cerinahealth.com/about"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
             onClick={() => setIsOpen(false)}
           >
             About us
-          </Link>
+          </a>
           <button
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors flex items-center gap-1"
             onClick={() => {
@@ -240,15 +244,17 @@ export default function Header() {
           {isWhoWeServeOpen && (
             <div className="ml-4 space-y-2">
               {whoWeServe.map((item) => (
-                <Link
+                <a
                   key={item.id}
-                  className="flex items-center gap-2 px-2 py-1 text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-700 hover:text-[#5E005E] transition-colors"
-                  href={item.id === 'organisations' ? '/business-solution' : item.id === 'individuals' ? '/individual-solution' : '/resource'}
+                  className="flex items-center gap-2 px-2 py-1 text-[0.875rem] text-gray-700 hover:text-[#5E005E] transition-colors"
+                  href={item.id === 'organisations' ? 'https://cerinahealth.com/organisations' : item.id === 'individuals' ? 'https://cerinahealth.com/app' : 'https://cerinahealth.com/universities'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                 >
                   <img src={item.icon} alt={item.label} className="w-4 h-4" />
                   {item.label}
-                </Link>
+                </a>
               ))}
             </div>
           )}
@@ -265,31 +271,37 @@ export default function Header() {
           {isProductsOpen && (
             <div className="ml-4 space-y-2">
               {products.map((item) => (
-                <Link
+                <a
                   key={item.id}
-                  className="flex items-center gap-2 px-2 py-1 text-[clamp(0.55rem,0.8vw,0.65rem)] text-gray-700 hover:text-[#5E005E] transition-colors"
-                  href="/platforms"
+                  className="flex items-center gap-2 px-2 py-1 text-[0.875rem] text-gray-700 hover:text-[#5E005E] transition-colors"
+                  href={item.id === 'cerina-app' ? 'https://cerinahealth.com/app' : 'https://cerinahealth.com/ai-triaging'}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsOpen(false)}
                 >
                   <img src={item.icon} alt={item.label} className="w-4 h-4" />
                   {item.label}
-                </Link>
+                </a>
               ))}
             </div>
           )}
-          <Link
-            href="/resource"
+          <a
+            href="https://cerinahealth.com/research"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
             onClick={() => setIsOpen(false)}
           >
             Research
-          </Link>
+          </a>
           <a
-            href="/blogs"
+            href="https://blog.cerinahealth.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[1rem] sm:text-[1.125rem] font-medium hover:text-[#5E005E] transition-colors"
             onClick={() => setIsOpen(false)}
           >
-            Blogs
+            Blog
           </a>
           <Link
             href="/contact"

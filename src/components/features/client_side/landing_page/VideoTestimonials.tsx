@@ -268,6 +268,7 @@ const VideoTestimonials: React.FC = () => {
     role: string;
   } | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasDragged, setHasDragged] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -340,6 +341,7 @@ const VideoTestimonials: React.FC = () => {
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
+    setHasDragged(false);
     setStartX(e.pageX);
     setScrollLeft(activeIndex);
   };
@@ -348,7 +350,13 @@ const VideoTestimonials: React.FC = () => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX;
-    const walk = (startX - x) / 300; // Adjust sensitivity
+    const distance = Math.abs(startX - x);
+    // Only consider it a drag if moved more than 5 pixels
+    if (distance > 5) {
+      setHasDragged(true);
+    }
+    // Calculate walk based on drag distance - lower divisor = more sensitive
+    const walk = (startX - x) / 100;
     const newIndex = Math.round(scrollLeft + walk);
     const clampedIndex = Math.max(0, Math.min(videos.length - 1, newIndex));
     setActiveIndex(clampedIndex);
@@ -356,23 +364,40 @@ const VideoTestimonials: React.FC = () => {
 
   const handleMouseUp = () => {
     setIsDragging(false);
+    // Reset hasDragged after a short delay to prevent click from firing
+    setTimeout(() => setHasDragged(false), 100);
   };
 
   const handleMouseLeave = () => {
     setIsDragging(false);
+    setHasDragged(false);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setHasDragged(false);
     setStartX(e.touches[0].pageX);
     setScrollLeft(activeIndex);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     const x = e.touches[0].pageX;
-    const walk = (startX - x) / 300;
+    const distance = Math.abs(startX - x);
+    // Only consider it a drag if moved more than 5 pixels
+    if (distance > 5) {
+      setHasDragged(true);
+    }
+    // Calculate walk based on drag distance - lower divisor = more sensitive
+    const walk = (startX - x) / 100;
     const newIndex = Math.round(scrollLeft + walk);
     const clampedIndex = Math.max(0, Math.min(videos.length - 1, newIndex));
     setActiveIndex(clampedIndex);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    // Reset hasDragged after a short delay to prevent click from firing
+    setTimeout(() => setHasDragged(false), 100);
   };
 
   const handleVideoPlay = (video: {
@@ -380,7 +405,8 @@ const VideoTestimonials: React.FC = () => {
     name: string;
     role: string;
   }) => {
-    if (!isDragging) {
+    // Only play if we didn't drag
+    if (!hasDragged) {
       setSelectedVideo(video);
     }
   };
@@ -442,7 +468,7 @@ const VideoTestimonials: React.FC = () => {
             onMouseLeave={handleMouseLeave}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
-            onTouchEnd={handleMouseUp}
+            onTouchEnd={handleTouchEnd}
           >
             {videos.map((video, index) => (
               <VideoCard

@@ -16,6 +16,9 @@ const AIIntakeSection = () => {
     "/home_page/intake_images/img08.png",
   ];
 
+  // Indexes to enlarge (0-based): img02,img03,img04,img06,img07,img08
+  const enlargeIndices = [1, 2, 3, 5, 6, 7];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % intakeImages.length);
@@ -27,13 +30,13 @@ const AIIntakeSection = () => {
   return (
     <div className="relative w-full py-6 md:py-9 lg:py-16 px-3 md:px-6 lg:px-12 overflow-hidden mb-12">
       {/* Images positioned absolutely to float above the background on desktop */}
-      <div className="hidden lg:flex absolute inset-0 justify-center items-center pointer-events-none z-10">
+        <div className="hidden lg:flex absolute inset-0 justify-center items-center pointer-events-none z-10">
         {/* Center - Sliding Images */}
-        <div className="relative w-[260px] h-[510px]">
+        <div className="relative w-[300px] h-[560px]">
           {intakeImages.map((imageSrc, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+              className={`absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center overflow-hidden ${
                 index === currentIndex
                   ? "opacity-100 translate-x-0"
                   : index < currentIndex
@@ -44,8 +47,15 @@ const AIIntakeSection = () => {
               <Image
                 src={imageSrc}
                 alt={`Intake screen ${index + 1}`}
-                fill
-                className="object-contain"
+                width={300}
+                height={560}
+                className={
+                  enlargeIndices.includes(index)
+                    ? "w-[120%] h-[120%] object-center object-cover"
+                    : index === 0 || index === 4
+                    ? "w-[90%] h-[90%] object-center object-contain"
+                    : "w-full h-full object-center object-cover"
+                }
               />
             </div>
           ))}
@@ -86,11 +96,11 @@ const AIIntakeSection = () => {
 
         {/* Center - Sliding Images - visible on mobile, hidden on desktop */}
         <div className="md:hidden flex justify-center items-center py-6 px-4">
-          <div className="relative w-[160px] h-[320px] max-w-full">
+    <div className="relative w-[180px] h-[340px] max-w-full">
             {intakeImages.map((imageSrc, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                className={`absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center overflow-hidden ${
                   index === currentIndex
                     ? "opacity-100 translate-x-0"
                     : index < currentIndex
@@ -101,8 +111,15 @@ const AIIntakeSection = () => {
                 <Image
                   src={imageSrc}
                   alt={`Intake screen ${index + 1}`}
-                  fill
-                  className="object-contain"
+                  width={180}
+                  height={340}
+                  className={
+                    enlargeIndices.includes(index)
+                      ? "w-[125%] h-[125%] object-center object-cover"
+                      : index === 0 || index === 4
+                      ? "w-[85%] h-[85%] object-center object-contain"
+                      : "w-full h-full object-center object-cover"
+                  }
                 />
               </div>
             ))}
