@@ -400,6 +400,24 @@ const VideoTestimonials: React.FC = () => {
     setTimeout(() => setHasDragged(false), 100);
   };
 
+  const handleWheel = (e: React.WheelEvent) => {
+    // Ignore while dragging with mouse/touch
+    if (isDragging) return;
+
+    // Prefer horizontal delta (trackpad horizontal swipe produces deltaX)
+    const delta = Math.abs(e.deltaX) > 0 ? e.deltaX : e.deltaY;
+    // Small threshold to avoid accidental tiny scrolls
+    if (Math.abs(delta) < 10) return;
+
+    e.preventDefault();
+
+    const dir = delta > 0 ? 1 : -1; // positive = scroll right -> next
+    setActiveIndex((prev) => {
+      const next = prev + dir;
+      return Math.max(0, Math.min(videos.length - 1, next));
+    });
+  };
+
   const handleVideoPlay = (video: {
     videoUrl: string;
     name: string;
@@ -469,6 +487,7 @@ const VideoTestimonials: React.FC = () => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
+            onWheel={handleWheel}
           >
             {videos.map((video, index) => (
               <VideoCard

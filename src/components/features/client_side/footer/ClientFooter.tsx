@@ -246,7 +246,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mt-8">
-          <span className="text-sm text-gray-600 text-center sm:text-left">NoSuffering Ltd. Copyright 2024. All rights reserved.</span>
+          <span className="text-sm text-gray-600 text-center sm:text-left">NoSuffering Ltd. Copyright 2025. All rights reserved.</span>
           <div className="flex items-center justify-center sm:justify-end gap-3">
             <img
               src="/home_page/footer_instagram.svg"
