@@ -16,7 +16,7 @@ export default function Header() {
   const whoWeServe = [
     { id: 'organisations', label: 'Organisations', icon: '/home_page/icon_building.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/organisations.png' },
     { id: 'individuals', label: 'Individuals', icon: '/home_page/icon_person.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/individuals.png' },
-    { id: 'universities', label: 'Universities', icon: '/home_page/icon_university.svg', hoverClass: 'hover:bg-gray-100' },
+    { id: 'universities', label: 'Universities', icon: '/home_page/icon_university.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/Universities.png' },
   ];
 
   const products = [
@@ -127,7 +127,7 @@ export default function Header() {
                     >
                       <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
                         {item.image ? (
-                          <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                          <img src={item.image} alt={item.label} className={`object-cover ${item.id === 'universities' ? 'w-8 h-8 scale-110' : 'w-5 h-5'}`} />
                         ) : (
                           <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
                         )}
@@ -264,7 +264,7 @@ export default function Header() {
                 >
                   <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
                     {item.image ? (
-                      <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                      <img src={item.image} alt={item.label} className={`object-cover ${item.id === 'universities' ? 'w-8 h-8 scale-110' : 'w-5 h-5'}`} />
                     ) : (
                       <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
                     )}
