@@ -1,70 +1,27 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 
 const AIIntakeSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const intakeImages = [
-    "/home_page/intake_images/img01.png",
-    "/home_page/intake_images/img02.png",
-    "/home_page/intake_images/img03.png",
-    "/home_page/intake_images/img04.png",
-    "/home_page/intake_images/img05.png",
-    "/home_page/intake_images/img06.png",
-    "/home_page/intake_images/img07.png",
-    "/home_page/intake_images/img08.png",
-  ];
-
-  // Indexes to enlarge (0-based): img02,img03,img04,img06,img07,img08
-  const enlargeIndices = [1, 2, 3, 5, 6, 7];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % intakeImages.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [intakeImages.length]);
-
   return (
     <div className="relative w-full py-6 md:py-9 lg:py-16 px-3 md:px-6 lg:px-12 overflow-hidden mb-12">
-      {/* Images positioned absolutely to float above the background on desktop */}
-        <div className="hidden lg:flex absolute inset-0 justify-center items-center pointer-events-none z-10">
-        {/* Center - Sliding Images */}
-        <div className="relative w-[300px] h-[560px]">
-          {intakeImages.map((imageSrc, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center overflow-hidden ${
-                index === currentIndex
-                  ? "opacity-100 translate-x-0"
-                  : index < currentIndex
-                  ? "opacity-0 -translate-x-full"
-                  : "opacity-0 translate-x-full"
-              }`}
-            >
-              <Image
-                src={imageSrc}
-                alt={`Intake screen ${index + 1}`}
-                width={300}
-                height={560}
-                className={
-                  enlargeIndices.includes(index)
-                    ? "w-[120%] h-[120%] object-center object-cover"
-                    : index === 0 || index === 4
-                    ? "w-[90%] h-[90%] object-center object-contain"
-                    : "w-full h-full object-center object-cover"
-                }
-              />
-            </div>
-          ))}
+      {/* GIF positioned absolutely to float above the background on desktop */}
+      <div className="hidden lg:flex absolute inset-0 justify-center items-center pointer-events-none z-10">
+        <div className="relative w-[350px] h-[650px] flex items-center justify-center">
+          <Image
+            src="/home_page/section4-anim.gif"
+            alt="AI Intake Animation"
+            width={350}
+            height={650}
+            className="w-full h-full object-contain"
+            unoptimized
+          />
         </div>
       </div>
 
       {/* Background with text sections */}
       <div className="relative z-0 w-full max-w-6xl mx-auto bg-[#F5EFE7] rounded-3xl px-5 md:px-10 lg:px-14 pt-3 pb-3 md:pt-5 md:pb-5 lg:pt-16 lg:pb-16 flex flex-col md:flex-row items-center md:justify-between gap-6 md:gap-100">
-        
+
         {/* Left Section */}
         <div className="flex-1 space-y-6 md:space-y-9">
           {/* AI Intake */}
@@ -94,35 +51,17 @@ const AIIntakeSection = () => {
           </div>
         </div>
 
-        {/* Center - Sliding Images - visible on mobile, hidden on desktop */}
+        {/* Center - GIF - visible on mobile, hidden on desktop */}
         <div className="md:hidden flex justify-center items-center py-6 px-4">
-    <div className="relative w-[180px] h-[340px] max-w-full">
-            {intakeImages.map((imageSrc, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-all duration-700 ease-in-out flex items-center justify-center overflow-hidden ${
-                  index === currentIndex
-                    ? "opacity-100 translate-x-0"
-                    : index < currentIndex
-                    ? "opacity-0 -translate-x-full"
-                    : "opacity-0 translate-x-full"
-                }`}
-              >
-                <Image
-                  src={imageSrc}
-                  alt={`Intake screen ${index + 1}`}
-                  width={180}
-                  height={340}
-                  className={
-                    enlargeIndices.includes(index)
-                      ? "w-[125%] h-[125%] object-center object-cover"
-                      : index === 0 || index === 4
-                      ? "w-[85%] h-[85%] object-center object-contain"
-                      : "w-full h-full object-center object-cover"
-                  }
-                />
-              </div>
-            ))}
+          <div className="relative w-[220px] h-[400px] max-w-full flex items-center justify-center">
+            <Image
+              src="/home_page/section4-anim.gif"
+              alt="AI Intake Animation"
+              width={220}
+              height={400}
+              className="w-full h-full object-contain"
+              unoptimized
+            />
           </div>
         </div>
 
