@@ -36,6 +36,7 @@ export default function HomePage() {
           buttonText="Individual Solution"
           media="/home_page/individuals.svg"
           imagePosition="left"
+          showStoreButtons={true}
         />
       </section>
 

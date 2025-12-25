@@ -201,7 +201,7 @@ const Evidence: React.FC = () => {
                     <p
                       className="text-[#0C0407] font-bold"
                       style={{
-                        fontFamily: "Inter",
+                        fontFamily: "var(--font-inter), Inter, sans-serif",
                         fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
                         lineHeight: "18.8px",
                         letterSpacing: "-0.13px",

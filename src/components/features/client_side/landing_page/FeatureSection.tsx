@@ -13,6 +13,7 @@ type FeatureSectionProps = {
   mediaWrapperStyle?: string;
   imagePosition?: "left" | "right";
   backgroundColorClass?: string;
+  showStoreButtons?: boolean;
 };
 
 const FeatureSection: React.FC<FeatureSectionProps> = ({
@@ -26,6 +27,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
   mediaWrapperStyle,
   imagePosition,
   backgroundColorClass,
+  showStoreButtons,
 }) => {
   const hasContent = title || subtitle || secondTitle || description;
 
@@ -122,6 +124,25 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
                     </span>
                   </span>
                 </button>
+              )}
+
+              {showStoreButtons && (
+                <div className="flex items-center gap-4 mt-6 justify-center lg:justify-start">
+                  <a href="https://apps.apple.com/gb/app/cerina/id1568686266" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="/home_page/appstore.svg"
+                      alt="App Store"
+                      className="h-10"
+                    />
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=co.cerina.app&gl=GB" target="_blank" rel="noopener noreferrer">
+                    <img
+                      src="/home_page/playstore.svg"
+                      alt="Play Store"
+                      className="h-10"
+                    />
+                  </a>
+                </div>
               )}
             </div>
           )}

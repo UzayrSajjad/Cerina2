@@ -233,12 +233,41 @@ export default function Footer() {
             </div>
 
             {/* Social & badges row */}
-            <div className="flex items-center justify-between gap-4 mt-8 flex-wrap">
-              <div className="flex items-center gap-3">
+            <div className="flex items-center justify-start gap-4 mt-4">
+              <div className="flex items-center gap-3 sm:gap-4 flex-wrap sm:flex-nowrap">
+                <a href="https://apps.apple.com/gb/app/cerina/id1568686266" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/home_page/appstore.svg"
+                    alt="App Store"
+                    className="h-8 sm:h-10"
+                  />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=co.cerina.app&gl=GB" target="_blank" rel="noopener noreferrer">
+                  <img
+                    src="/home_page/playstore.svg"
+                    alt="Play Store"
+                    className="h-8 sm:h-10"
+                  />
+                </a>
                 <img
-                  src="/home_page/footer_social_icons.svg"
-                  alt="social icons"
-                  className="w-full max-w-[605px]"
+                  src="/home_page/nhs.svg"
+                  alt="NHS"
+                  className="h-8 sm:h-10"
+                />
+                <img
+                  src="/home_page/orcha.svg"
+                  alt="ORCHA"
+                  className="h-8 sm:h-10"
+                />
+                <img
+                  src="/home_page/iso.svg"
+                  alt="ISO"
+                  className="h-8 sm:h-10"
+                />
+                <img
+                  src="/home_page/cyber.svg"
+                  alt="Cyber"
+                  className="h-8 sm:h-10"
                 />
               </div>
             </div>
@@ -249,17 +278,17 @@ export default function Footer() {
           <span className="text-sm text-gray-600 text-center sm:text-left">NoSuffering Ltd. Copyright 2025. All rights reserved.</span>
           <div className="flex items-center justify-center sm:justify-end gap-3">
             <img
-              src="/home_page/footer_instagram.svg"
-              alt="Instagram"
-              className="h-5 w-5"
-            />
-            <img
-              src="/home_page/footer_linkedin.svg"
+              src="/home_page/linkedin.svg"
               alt="Linkedin"
               className="h-5 w-5"
             />
             <img
-              src="/home_page/footer_youtube.svg"
+              src="/home_page/insta.svg"
+              alt="Instagram"
+              className="h-5 w-5"
+            />
+            <img
+              src="/home_page/youtube.svg"
               alt="YouTube"
               className="h-5 w-5"
             />
