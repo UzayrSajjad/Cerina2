@@ -147,10 +147,10 @@ export default function Footer() {
                     <Link href="/">Home</Link>
                   </li>
                   <li>
-                    <Link href="/about-us">About Us</Link>
+                    <a href="https://cerinahealth.com/about">About Us</a>
                   </li>
                   <li>
-                    <Link href="/how-it-works">How it Works</Link>
+                    <a href="https://cerinahealth.com/how-it-works">How it Works</a>
                   </li>
                   <li>
                     <Link href="/business-solution">Business Solutions</Link>
@@ -180,10 +180,10 @@ export default function Footer() {
                     <Link href="/case-studies">Case Studies</Link>
                   </li>
                   <li>
-                    <Link href="/resource">Research</Link>
+                    <a href="https://cerinahealth.com/research">Research</a>
                   </li>
                   <li>
-                    <Link href="/blogs">Blogs</Link>
+                    <a href="https://blog.cerinahealth.com/">Blogs</a>
                   </li>
                   <li>
                     <Link href="/testimonials">Testimonials</Link>
@@ -210,23 +210,21 @@ export default function Footer() {
                   style={{ fontFamily: "Montserrat" }}
                 >
                   <li>
-                    <Link href="/privacy">Privacy Policy</Link>
+                    <a href="https://cerinahealth.com/privacy-policy.html">Privacy Policy</a>
                   </li>
                   <li>
-                    <Link href="/terms">Terms & Conditions</Link>
+                    <a href="https://cerinahealth.com/img/Terms&Conditions.pdf">Terms & Conditions</a>
                   </li>
                   <li>
-                    <Link href="/cookie">Cookie Policy</Link>
+                    <a href="https://cerinahealth.com/img/cp.pdf">Cookie Policy</a>
                   </li>
                   <li>
-                    <Link href="/risk">Risk Management</Link>
+                    <a href="https://cerinahealth.com/clinicalsafety.html">Risk Management</a>
                   </li>
                   <li>
-                    <Link
-                      href="/accessibility"
-                    >
+                    <a href="https://cerinahealth.com/accessibilitystatement.html">
                       Accessibility Management
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>

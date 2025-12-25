@@ -16,13 +16,15 @@ export default function HeroSection() {
 
   const sliderIcons = [
     'cyber.svg',
-    'dcb.svg',
+    'dcbt.svg',
     'interreg.svg',
     'iso.svg',
     'medicine.svg',
     'medilink.svg',
     'nhs.svg',
-    'orcha.svg'
+    'orcha.svg',
+    'gdpa.svg',
+    'msduk.svg'
   ];
 
   useEffect(() => {
