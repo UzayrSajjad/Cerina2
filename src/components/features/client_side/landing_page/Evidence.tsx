@@ -243,7 +243,7 @@ const Evidence: React.FC = () => {
         <div className="group relative" tabIndex={0}>
           {/* keep icon UI as a plain image */}
           <img
-            src="/home_page/review-icon.png"
+            src="/home_page/rev-icon.svg"
             alt="review icon"
             className="w-8 h-8 sm:w-10 sm:h-10"
           />

@@ -1,15 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const headerRef = useRef<HTMLHeadElement>(null);
-  const lastScrollY = useRef(0);
   const [mounted, setMounted] = useState(false);
-  const mblRef = useRef<HTMLDivElement>(null);
   const [isWhoWeServeOpen, setIsWhoWeServeOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
 
@@ -24,46 +21,15 @@ export default function Header() {
     { id: 'ai-patient-flow', label: 'AI Patient-Flow', icon: '/home_page/icon_chat.svg', hoverClass: 'hover:bg-gray-100', image: '/home_page/ai-patient-flow.png' },
   ];
 
-  const scrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   useEffect(() => {
     setMounted(true);
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (!headerRef.current || !mblRef.current) return;
-
-      // Header always visible, no hide/show on scroll
-
-      if (!isOpen) {
-        if (currentScrollY > 100) {
-          mblRef.current.style.top = "0px";
-          mblRef.current.style.backgroundColor = "red";
-        } else {
-          mblRef.current.style.top = "0";
-          mblRef.current.style.backgroundColor = "transparent";
-        }
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isOpen]);
+  }, []);
 
   return (
     <>
 
       <header
-        ref={headerRef}
-        className="z-50 will-change-transform transition-transform duration-300 ease-in-out fixed top-[20px] sm:top-[33px] left-1/2 transform -translate-x-1/2 w-[calc(100vw-16px)] sm:w-[calc(100vw-32px)] md:w-[calc(100vw-64px)] lg:w-[calc(100vw-128px)] xl:w-[calc(100vw-202px)] max-w-[1452px] h-[64px] sm:h-[72px] md:h-[88px] rounded-[1010px] shadow-[0px_17px_45.2px_0px_#0000000D] backdrop-blur-[50px] bg-white/70"
+        className="z-50 absolute top-[20px] sm:top-[33px] left-1/2 transform -translate-x-1/2 w-[calc(100vw-16px)] sm:w-[calc(100vw-32px)] md:w-[calc(100vw-64px)] lg:w-[calc(100vw-128px)] xl:w-[calc(100vw-202px)] max-w-[1452px] h-[64px] sm:h-[72px] md:h-[88px] rounded-[1010px] shadow-[0px_17px_45.2px_0px_#0000000D] backdrop-blur-[50px] bg-white/70"
       >
         <div className="relative max-w-[1240px] mx-auto px-4 h-[64px] sm:h-[72px] md:h-[88px] flex justify-between items-center">
           {/* Logo */}
@@ -214,7 +180,6 @@ export default function Header() {
 
       {/* Slide Menu */}
       <div
-        ref={mblRef}
         className={`fixed top-0 right-0 w-full sm:w-80 h-[100vh] z-[999] lg:hidden transform transition-transform duration-300 ease-in-out bg-white
           ${isOpen ? "translate-x-0" : "translate-x-full"}
           shadow-2xl border-l border-white/20`}
