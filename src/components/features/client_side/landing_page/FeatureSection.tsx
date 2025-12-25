@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 type FeatureSectionProps = {
   title?: string;
@@ -129,17 +130,21 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
               {showStoreButtons && (
                 <div className="flex items-center gap-4 mt-6 justify-center lg:justify-start">
                   <a href="https://apps.apple.com/gb/app/cerina/id1568686266" target="_blank" rel="noopener noreferrer">
-                    <img
+                    <Image
                       src="/home_page/appstore.svg"
                       alt="App Store"
-                      className="h-10"
+                      width={120}
+                      height={40}
+                      className="h-10 w-auto"
                     />
                   </a>
                   <a href="https://play.google.com/store/apps/details?id=co.cerina.app&gl=GB" target="_blank" rel="noopener noreferrer">
-                    <img
+                    <Image
                       src="/home_page/playstore.svg"
                       alt="Play Store"
-                      className="h-10"
+                      width={120}
+                      height={40}
+                      className="h-10 w-auto"
                     />
                   </a>
                 </div>
@@ -150,9 +155,11 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
           <div
             className={`w-full lg:w-[566px] h-full flex items-center justify-center ${mediaWrapperStyle}`}
           >
-            <img
+            <Image
               src={media}
-              alt={title}
+              alt={title || "Feature image"}
+              width={600}
+              height={600}
               className={
                 hasContent
                   ? "w-full max-w-[400px] sm:max-w-[500px] md:max-w-[550px] 2xl:max-w-[600px]"

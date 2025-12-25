@@ -81,10 +81,11 @@ export default function Footer() {
                   >
                     BBC Spotlight
                   </span>
-                  <img
+                  <Image
                     src="/home_page/footer_video.svg"
                     alt="video icon"
-                    className="w-3.5 h-3.5"
+                    width={14}
+                    height={14}
                   />
                 </div>
                 <p
@@ -108,10 +109,11 @@ export default function Footer() {
                   >
                     Quick demo
                   </span>
-                  <img
+                  <Image
                     src="/home_page/footer_video.svg"
                     alt="video icon"
-                    className="w-3.5 h-3.5"
+                    width={14}
+                    height={14}
                   />
                 </div>
                 <p
@@ -234,38 +236,50 @@ export default function Footer() {
             <div className="flex items-center justify-start gap-4 mt-4">
               <div className="flex items-center gap-3 sm:gap-4 flex-wrap sm:flex-nowrap">
                 <a href="https://apps.apple.com/gb/app/cerina/id1568686266" target="_blank" rel="noopener noreferrer">
-                  <img
+                  <Image
                     src="/home_page/appstore.svg"
                     alt="App Store"
-                    className="h-8 sm:h-10"
+                    width={120}
+                    height={40}
+                    className="h-8 sm:h-10 w-auto"
                   />
                 </a>
                 <a href="https://play.google.com/store/apps/details?id=co.cerina.app&gl=GB" target="_blank" rel="noopener noreferrer">
-                  <img
+                  <Image
                     src="/home_page/playstore.svg"
                     alt="Play Store"
-                    className="h-8 sm:h-10"
+                    width={120}
+                    height={40}
+                    className="h-8 sm:h-10 w-auto"
                   />
                 </a>
-                <img
+                <Image
                   src="/home_page/nhs.svg"
                   alt="NHS"
-                  className="h-8 sm:h-10"
+                  width={40}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto"
                 />
-                <img
+                <Image
                   src="/home_page/orcha.svg"
                   alt="ORCHA"
-                  className="h-8 sm:h-10"
+                  width={40}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto"
                 />
-                <img
+                <Image
                   src="/home_page/iso.svg"
                   alt="ISO"
-                  className="h-8 sm:h-10"
+                  width={40}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto"
                 />
-                <img
+                <Image
                   src="/home_page/cyber.svg"
                   alt="Cyber"
-                  className="h-8 sm:h-10"
+                  width={40}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto"
                 />
               </div>
             </div>
@@ -275,20 +289,23 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mt-8">
           <span className="text-sm text-gray-600 text-center sm:text-left">NoSuffering Ltd. Copyright 2025. All rights reserved.</span>
           <div className="flex items-center justify-center sm:justify-end gap-3">
-            <img
+            <Image
               src="/home_page/linkedin.svg"
               alt="Linkedin"
-              className="h-5 w-5"
+              width={20}
+              height={20}
             />
-            <img
+            <Image
               src="/home_page/insta.svg"
               alt="Instagram"
-              className="h-5 w-5"
+              width={20}
+              height={20}
             />
-            <img
+            <Image
               src="/home_page/youtube.svg"
               alt="YouTube"
-              className="h-5 w-5"
+              width={20}
+              height={20}
             />
           </div>
         </div>
@@ -353,10 +370,11 @@ export default function Footer() {
                     paddingLeft: "6.78px",
                   }}
                 >
-                  <img
+                  <Image
                     src="/home_page/video_tag_icon.svg"
                     alt="tag icon"
-                    className="w-6 h-6"
+                    width={24}
+                    height={24}
                   />
                   <div>
                     <p

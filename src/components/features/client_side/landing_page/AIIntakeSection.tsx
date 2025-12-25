@@ -26,10 +26,11 @@ const AIIntakeSection = () => {
         <div className="flex-1 space-y-6 md:space-y-9">
           {/* AI Intake */}
           <div className="space-y-2">
-            <img
+            <Image
               src="/home_page/intake_images/ai.svg"
               alt="AI Intake Icon"
-              className="w-7 h-7"
+              width={28}
+              height={28}
             />
             <h3 className="text-base md:text-lg font-bold text-gray-900">AI intake</h3>
             <p className="text-[11px] md:text-xs text-gray-700 leading-relaxed max-w-xs">
@@ -39,10 +40,11 @@ const AIIntakeSection = () => {
 
           {/* Personalised User Journeys */}
           <div className="space-y-2">
-            <img
+            <Image
               src="/home_page/intake_images/personal.svg"
               alt="Personalised User Journeys Icon"
-              className="w-7 h-7"
+              width={28}
+              height={28}
             />
             <h3 className="text-base md:text-lg font-bold text-gray-900">Personalised user journeys</h3>
             <p className="text-[11px] md:text-xs text-gray-700 leading-relaxed max-w-xs">
@@ -69,10 +71,11 @@ const AIIntakeSection = () => {
         <div className="flex-1 space-y-6 md:space-y-9">
           {/* Customisable Integration */}
           <div className="space-y-2">
-            <img
+            <Image
               src="/home_page/intake_images/custom.svg"
               alt="Customisable Integration Icon"
-              className="w-7 h-7"
+              width={28}
+              height={28}
             />
             <h3 className="text-base md:text-lg font-bold text-gray-900">Customisable integration</h3>
             <p className="text-[11px] md:text-xs text-gray-700 leading-relaxed max-w-xs">
@@ -82,10 +85,11 @@ const AIIntakeSection = () => {
 
           {/* Voice AI */}
           <div className="space-y-2">
-            <img
+            <Image
               src="/home_page/intake_images/voice.svg"
               alt="Voice AI Icon"
-              className="w-7 h-7"
+              width={28}
+              height={28}
             />
             <h3 className="text-base md:text-lg font-bold text-gray-900">Voice AI (in beta)</h3>
             <p className="text-[11px] md:text-xs text-gray-700 leading-relaxed max-w-xs">

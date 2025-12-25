@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Evidence: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -174,11 +175,12 @@ const Evidence: React.FC = () => {
                     {/* Stars */}
                     <div className="flex gap-1 mb-4">
                       {[...Array(5)].map((_, i) => (
-                        <img
+                        <Image
                           key={i}
                           src="/home_page/star_icon.svg"
                           alt="star"
-                          className="w-5 h-5"
+                          width={20}
+                          height={20}
                         />
                       ))}
                     </div>
@@ -222,14 +224,15 @@ const Evidence: React.FC = () => {
                   onClick={() => setActiveSlide(index)}
                   className="cursor-pointer transition-all duration-300"
                 >
-                  <img
+                  <Image
                     src={
                       index === activeSlide
                         ? "/home_page/filled_slider_icon.svg"
                         : "/home_page/hollo_slider_icon.svg"
                     }
                     alt="slider indicator"
-                    className="w-3 h-3"
+                    width={12}
+                    height={12}
                   />
                 </button>
               ))}
@@ -242,9 +245,11 @@ const Evidence: React.FC = () => {
       <div className="absolute left-14 bottom-12 sm:left-20 sm:bottom-16">
         <div className="group relative" tabIndex={0}>
           {/* keep icon UI as a plain image */}
-          <img
+          <Image
             src="/home_page/rev-icon.svg"
             alt="review icon"
+            width={40}
+            height={40}
             className="w-8 h-8 sm:w-10 sm:h-10"
           />
 

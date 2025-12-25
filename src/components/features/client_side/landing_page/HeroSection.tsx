@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [email, setEmail] = useState("");
@@ -63,10 +64,12 @@ export default function HeroSection() {
           <div className="relative h-screen min-h-[600px] overflow-hidden">
             {/* Hero Image */}
             <div className="absolute inset-0">
-              <img
+              <Image
                 src="/sky.svg"
                 alt="Happy couple on beach"
-                className="w-full h-full object-cover object-center"
+                fill
+                className="object-cover object-center"
+                priority
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/10" />
@@ -128,18 +131,14 @@ export default function HeroSection() {
                   </form>
                 </div>
                 <div className="flex-1 hidden lg:flex justify-center items-center">
-                  <img
-                      src="/home_page/hero.gif"
-                      alt="Hero Image"
-                      className="max-w-full h-auto"
-                      onError={(e) => {
-                        // fallback to existing svg if gif not present
-                        const target = e.currentTarget as HTMLImageElement;
-                        if (target.src && !target.src.includes('hero_image.svg')) {
-                          target.src = '/hero_image.svg';
-                        }
-                      }}
-                    />
+                  <Image
+                    src="/home_page/hero.gif"
+                    alt="Hero Image"
+                    width={500}
+                    height={500}
+                    className="max-w-full h-auto"
+                    unoptimized
+                  />
                 </div>
               </div>
             </div>
@@ -147,9 +146,11 @@ export default function HeroSection() {
             {/* Feature Row */}
             <div className="absolute bottom-5 left-0 right-0 z-10">
               <div className="ml-4 md:ml-8 lg:ml-20 xl:ml-28 flex items-center gap-4 md:gap-8">
-                <img
+                <Image
                   src="/feature_bbc.svg"
                   alt="Featured on BBC"
+                  width={248}
+                  height={60}
                   className="w-20 md:w-62 h-auto"
                 />
                 <div className="flex-1 overflow-hidden">
@@ -166,10 +167,12 @@ export default function HeroSection() {
                     }}
                   >
                     {sliderIcons.concat(sliderIcons).concat(sliderIcons).concat(sliderIcons).map((icon, index) => (
-                      <img
+                      <Image
                         key={`${icon}-${index}`}
                         src={`/slider_icons/${icon}`}
                         alt={icon.replace('.svg', '')}
+                        width={64}
+                        height={64}
                         className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"
                       />
                     ))}

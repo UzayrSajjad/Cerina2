@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 type CardProps = {
   title: string;
@@ -60,9 +61,11 @@ const InfoCard: React.FC<CardProps> = ({
 
         <div className="mt-auto">
           {image ? (
-            <img
+            <Image
               src={image}
               alt="card visual"
+              width={600}
+              height={260}
               className="w-full h-[200px] md:h-[260px] mt-6 object-cover rounded-b-[14.53px]"
             />
           ) : null}

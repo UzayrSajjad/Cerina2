@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 // ============================================
 // CORE CONSTANTS (CMS-editable defaults)
@@ -251,7 +252,7 @@ export default function NhsSolutions() {
               aria-describedby="nhs-estimates-tooltip-small"
               className="w-10 h-10 rounded-full bg-white/60 border border-white flex items-center justify-center focus:outline-none"
             >
-              <img src="/home_page/info.svg" alt="info" className="w-5 h-5" />
+              <Image src="/home_page/info.svg" alt="info" width={20} height={20} />
             </button>
 
             <div
@@ -385,10 +386,13 @@ export default function NhsSolutions() {
               {/* Thumb indicator */}
               <div
                 aria-hidden
-                style={{ left: `calc(${value}% - 16px)` }}
-                className="absolute top-1/2 -translate-y-1/2 w-8 h-8 pointer-events-none"
+                style={{ left: `calc(${value}% - 18px)` }}
+                className="absolute top-1/2 -translate-y-1/2 w-9 h-9 pointer-events-none"
               >
-                <img src="/home_page/slider.svg" alt="slider" className="w-full h-full object-contain" />
+                <svg width="36" height="36" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
+                  <rect x="3.7" y="2.7" width="38" height="38" rx="19" fill="#121212"/>
+                  <path d="M19.7 16.7L14.7 21.7L19.7 26.7M25.7 16.7L30.7 21.7L25.7 26.7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </div>
 
               {/* Hidden native input for accessibility */}
@@ -572,7 +576,7 @@ export default function NhsSolutions() {
               aria-describedby="nhs-estimates-tooltip"
               className="w-10 h-10 rounded-full bg-white/60 border border-white flex items-center justify-center focus:outline-none"
             >
-              <img src="/home_page/info.svg" alt="info" className="w-5 h-5" />
+              <Image src="/home_page/info.svg" alt="info" width={20} height={20} />
             </button>
 
             <div

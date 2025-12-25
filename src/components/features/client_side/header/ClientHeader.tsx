@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
@@ -35,10 +36,13 @@ export default function Header() {
           {/* Logo */}
           <div className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2">
             <Link href="/">
-              <img
+              <Image
                 src="/logo.svg"
-                alt="Promesse Logo"
+                alt="Cerina Logo"
+                width={120}
+                height={48}
                 className="h-8 w-auto sm:h-10 lg:h-12"
+                priority
               />
             </Link>
           </div>
@@ -76,7 +80,7 @@ export default function Header() {
                   aria-haspopup="true"
                 >
                   Who We Serve
-                  <img src="/arrow_down.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
+                  <Image src="/arrow_down.svg" alt="arrow" width={16} height={16} className="w-3 h-3 xl:w-4 xl:h-4" />
                 </a>
 
                 {/* Dropdown - appears on hover */}
@@ -93,9 +97,9 @@ export default function Header() {
                     >
                       <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
                         {item.image ? (
-                          <img src={item.image} alt={item.label} className={`object-cover ${item.id === 'universities' ? 'w-8 h-8 scale-110' : 'w-5 h-5'}`} />
+                          <Image src={item.image} alt={item.label} width={32} height={32} className={`object-cover ${item.id === 'universities' ? 'w-8 h-8 scale-110' : 'w-5 h-5'}`} />
                         ) : (
-                          <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                          <Image src={item.icon} alt={item.label} width={14} height={14} />
                         )}
                       </span>
                       {item.label}
@@ -115,7 +119,7 @@ export default function Header() {
                 aria-haspopup="true"
               >
                 Our Products
-                <img src="/arrow_down.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
+                <Image src="/arrow_down.svg" alt="arrow" width={16} height={16} className="w-3 h-3 xl:w-4 xl:h-4" />
               </a>
 
               {/* Dropdown - appears on hover */}
@@ -132,9 +136,9 @@ export default function Header() {
                     >
                       <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
                         {item.image ? (
-                          <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                          <Image src={item.image} alt={item.label} width={20} height={20} className="object-cover" />
                         ) : (
-                          <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                          <Image src={item.icon} alt={item.label} width={14} height={14} />
                         )}
                       </span>
                       {item.label}
@@ -159,7 +163,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="ml-2 xl:ml-4 h-[40px] xl:h-[48px] 2xl:h-[60px] px-[18px] xl:px-[24px] 2xl:px-[35px] py-[10px] xl:py-[12px] 2xl:py-[18px] rounded-[16px] bg-[#DDAC7C33] border-2 border-[#DDAC7C] text-[#18161A] font-semibold flex items-center gap-[6px] xl:gap-[8px] 2xl:gap-[10px] text-xs xl:text-sm 2xl:text-base whitespace-nowrap hover:bg-[#DDAC7C] transition-colors duration-200"
             >
-              <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3 xl:w-4 xl:h-4" />
+              <Image src="/arrow_right.svg" alt="arrow" width={16} height={16} className="w-3 h-3 xl:w-4 xl:h-4" />
               Contact Us
             </a>
           </nav>
@@ -214,7 +218,7 @@ export default function Header() {
             }}
           >
             Who We Serve
-            <img src="/arrow_down.svg" alt="arrow" className={`w-3 h-3 transition-transform ${isWhoWeServeOpen ? 'rotate-180' : ''}`} />
+            <Image src="/arrow_down.svg" alt="arrow" width={12} height={12} className={`transition-transform ${isWhoWeServeOpen ? 'rotate-180' : ''}`} />
           </button>
           {isWhoWeServeOpen && (
             <div className="ml-4 space-y-2">
@@ -229,9 +233,9 @@ export default function Header() {
                 >
                   <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
                     {item.image ? (
-                      <img src={item.image} alt={item.label} className={`object-cover ${item.id === 'universities' ? 'w-8 h-8 scale-110' : 'w-5 h-5'}`} />
+                      <Image src={item.image} alt={item.label} width={32} height={32} className={`object-cover ${item.id === 'universities' ? 'w-8 h-8 scale-110' : 'w-5 h-5'}`} />
                     ) : (
-                      <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                      <Image src={item.icon} alt={item.label} width={14} height={14} />
                     )}
                   </span>
                   {item.label}
@@ -247,7 +251,7 @@ export default function Header() {
             }}
           >
             Our Products
-            <img src="/arrow_down.svg" alt="arrow" className={`w-3 h-3 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
+            <Image src="/arrow_down.svg" alt="arrow" width={12} height={12} className={`transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
           </button>
           {isProductsOpen && (
             <div className="ml-4 space-y-2">
@@ -262,9 +266,9 @@ export default function Header() {
                 >
                   <span className="w-7 h-7 rounded-md border flex items-center justify-center bg-gray-50 overflow-hidden">
                     {item.image ? (
-                      <img src={item.image} alt={item.label} className="w-5 h-5 object-cover" />
+                      <Image src={item.image} alt={item.label} width={20} height={20} className="object-cover" />
                     ) : (
-                      <img src={item.icon} alt={item.label} className="w-3.5 h-3.5" />
+                      <Image src={item.icon} alt={item.label} width={14} height={14} />
                     )}
                   </span>
                   {item.label}
@@ -297,7 +301,7 @@ export default function Header() {
             className="px-[1rem] sm:px-[1.5rem] py-[0.5rem] sm:py-[0.75rem] rounded-md bg-[#DDAC7C] text-[#18161A] font-semibold hover:bg-[#C99B6A] transition-colors duration-200 text-sm sm:text-base flex items-center gap-2"
             onClick={() => setIsOpen(false)}
           >
-            <img src="/arrow_right.svg" alt="arrow" className="w-3 h-3" />
+            <Image src="/arrow_right.svg" alt="arrow" width={12} height={12} />
             Contact Us
           </a>
         </div>

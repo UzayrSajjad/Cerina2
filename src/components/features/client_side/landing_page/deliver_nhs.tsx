@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 const DeliverNHS: React.FC = () => {
   const [activeQuote, setActiveQuote] = useState(0);
@@ -113,7 +114,7 @@ const DeliverNHS: React.FC = () => {
                           color: '#6A6862',
                         }}
                       >
-                        <img src="/home_page/dot_icon.svg" alt="dot" className="w-2 h-2 inline" />
+                        <Image src="/home_page/dot_icon.svg" alt="dot" width={8} height={8} className="inline" />
                       </span>
                       <p
                         className="font-medium"
@@ -161,9 +162,11 @@ const DeliverNHS: React.FC = () => {
 
             {/* Three Icons */}
             <div className="flex justify-center lg:justify-start">
-              <img
+              <Image
                 src="/home_page/three_icons.svg"
                 alt="Three Icons"
+                width={544}
+                height={80}
                 className="w-full max-w-[544px] h-auto"
               />
             </div>
@@ -171,9 +174,11 @@ const DeliverNHS: React.FC = () => {
 
           {/* Right Side Image */}
           <div className="w-full lg:w-[566px] h-full flex items-center justify-center">
-            <img
+            <Image
               src="/home_page/deliver_nhs.svg"
               alt="Deliver NHS"
+              width={600}
+              height={600}
               className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[550px] 2xl:max-w-[600px]"
             />
           </div>

@@ -220,10 +220,11 @@ const VideoModal: React.FC<VideoModalProps> = ({
               paddingLeft: "6.78px",
             }}
           >
-            <img
+            <Image
               src="/home_page/video_tag_icon.svg"
               alt="tag icon"
-              className="w-6 h-6"
+              width={24}
+              height={24}
             />
             <div>
               <p

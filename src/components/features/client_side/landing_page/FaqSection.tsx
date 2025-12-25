@@ -100,10 +100,12 @@ const FaqSection: React.FC = () => {
               </p>
 
               <div className="mt-6 flex items-center gap-3 mb-4 md:mb-0">
-                <img
+                <Image
                   src="/home_page/group_people.svg"
                   alt="group"
-                  className="w-42 object-contain rounded-full"
+                  width={168}
+                  height={56}
+                  className="object-contain rounded-full"
                 />
               </div>
             </div>
@@ -159,7 +161,7 @@ const FaqSection: React.FC = () => {
 
                         <div className="flex items-center">
                           <div style={{ width: "24px", height: "24px", flexShrink: 0 }}>
-                            <img
+                            <Image
                             src="/cross_icon.svg"
                             alt="toggle"
                             width={24}
