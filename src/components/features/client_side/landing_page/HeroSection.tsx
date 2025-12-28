@@ -2,17 +2,17 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import BookDemoModal from "../BookDemoModal";
 
 export default function HeroSection() {
-  const [email, setEmail] = useState("");
+  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
   // use a ref for the paused flag so the animation loop (closure) always reads the latest value
   const isPausedRef = useRef(false);
   const [, setRenderTick] = useState(0); // keep a tiny state if other parts depend on pause rendering
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Subscribing email:", email);
+  const handleBookDemo = () => {
+    setIsBookDemoOpen(true);
   };
 
   const sliderIcons = [
@@ -112,23 +112,21 @@ export default function HeroSection() {
                    Clinically grounded support, guided programmes and AI-powered tools - all in one safe, accessible and easy to navigate platform.
                   </p>
 
-                  {/* Email Subscription Form */}
-                  <form onSubmit={handleSubscribe} className="space-y-1">
-                    <div className="flex flex-col sm:flex-row gap-2 ">
-                      
-                      <button
-                        type="submit"
-                        className="w-[176px] h-[48px] px-[30px] py-[15px] rounded-[16px] bg-[#DDAC7C] border-2 border-[#DDAC7C] text-[#18161A] font-medium hover:bg-[#eda965] hover:border-[#eda965] transition-colors duration-200 whitespace-nowrap text-center cursor-pointer"
-                        style={{
-                          fontSize: "clamp(0.74rem, 1.7vw, 0.85rem)",
-                          lineHeight: "clamp(0.74rem, 1.7vw, 0.85rem)",
-                          letterSpacing: "-0.136px",
-                        }}
-                      >
-                       Book a Demo
-                      </button>
-                    </div>
-                  </form>
+                  {/* Book a Demo CTA */}
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <button
+                      type="button"
+                      onClick={handleBookDemo}
+                      className="w-[176px] h-[48px] px-[30px] py-[15px] rounded-[16px] bg-[#DDAC7C] border-2 border-[#DDAC7C] text-[#18161A] font-medium hover:bg-[#eda965] hover:border-[#eda965] transition-colors duration-200 whitespace-nowrap text-center cursor-pointer"
+                      style={{
+                        fontSize: "clamp(0.74rem, 1.7vw, 0.85rem)",
+                        lineHeight: "clamp(0.74rem, 1.7vw, 0.85rem)",
+                        letterSpacing: "-0.136px",
+                      }}
+                    >
+                      Book a Demo
+                    </button>
+                  </div>
                 </div>
                 <div className="flex-1 hidden lg:flex justify-center items-center">
                   <Image
@@ -182,11 +180,13 @@ export default function HeroSection() {
             </div>
           </div>
         </main>
-
-        
-
-       
       </div>
+
+      {/* Book a Demo Modal */}
+      <BookDemoModal
+        isOpen={isBookDemoOpen}
+        onClose={() => setIsBookDemoOpen(false)}
+      />
     </>
   );
 }

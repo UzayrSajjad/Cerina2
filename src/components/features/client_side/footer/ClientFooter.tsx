@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import BookDemoModal from "../BookDemoModal";
 
 export default function Footer() {
   const [selectedVideo, setSelectedVideo] = useState<{
@@ -10,6 +11,7 @@ export default function Footer() {
     name: string;
     role: string;
   } | null>(null);
+  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
 
   const handleCloseModal = () => {
     setSelectedVideo(null);
@@ -53,9 +55,10 @@ export default function Footer() {
             </h3>
 
             <div className="mb-6">
-              <Link
-                href="/waitlist"
-                className="inline-block bg-[#1A140E] text-white border-2 border-[#1A140E] rounded-[16px] px-[32px] py-[16px] font-medium leading-[18px] tracking-[-0.16px] text-center hover:opacity-100 cursor-pointer"
+              <button
+                type="button"
+                onClick={() => setIsBookDemoOpen(true)}
+                className="inline-block bg-[#1A140E] text-white border-2 border-[#1A140E] rounded-[16px] px-[32px] py-[16px] font-medium leading-[18px] tracking-[-0.16px] text-center hover:opacity-90 cursor-pointer"
                 style={{
                   width: "186px",
                   height: "50px",
@@ -65,7 +68,7 @@ export default function Footer() {
                 }}
               >
                 Book a Demo
-              </Link>
+              </button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-6">
@@ -407,6 +410,12 @@ export default function Footer() {
             </div>
           </div>
         )}
+
+        {/* Book a Demo Modal */}
+        <BookDemoModal
+          isOpen={isBookDemoOpen}
+          onClose={() => setIsBookDemoOpen(false)}
+        />
       </div>
     </footer>
   );
