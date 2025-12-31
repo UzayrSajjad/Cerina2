@@ -284,6 +284,13 @@ export default function Footer() {
                   height={40}
                   className="h-8 sm:h-10 w-auto"
                 />
+                <Image
+                  src="/home_page/ukca.gif"
+                  alt="UKCA"
+                  width={40}
+                  height={40}
+                  className="h-8 sm:h-10 w-auto"
+                />
               </div>
             </div>
           </div>

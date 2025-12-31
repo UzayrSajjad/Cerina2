@@ -72,53 +72,28 @@ const VideoCard: React.FC<VideoCardProps> = ({
           </div>
         </div>
 
-        {/* Name tag at bottom left - commented out for now */}
-        {/*
+        {/* Cerina App User tag at bottom left */}
         <div
-          className="absolute flex items-center bg-white"
+          className="absolute flex items-center justify-center bg-white"
           style={{
-            width: "141.29px",
-            height: "48.92px",
-            bottom: "13.01px",
-            left: "13.01px",
-            gap: "8.82px",
-            borderRadius: "4.07px",
-            paddingLeft: "6.78px",
+            bottom: "36px",
+            left: "18px",
+            padding: "6px 12px",
+            borderRadius: "4px",
           }}
         >
-          <img
-            src="/home_page/video_tag_icon.svg"
-            alt="tag icon"
-            className="w-6 h-6"
-          />
-          <div>
-            <p
-              style={{
-                fontFamily: "Montserrat",
-                fontWeight: 600,
-                fontSize: "12.68px",
-                lineHeight: "16.07px",
-                letterSpacing: "0px",
-                color: "#121212",
-              }}
-            >
-              {name}
-            </p>
-            <p
-              style={{
-                fontFamily: "Montserrat",
-                fontWeight: 500,
-                fontSize: "5.76px",
-                lineHeight: "16.07px",
-                letterSpacing: "0px",
-                color: "#121212",
-              }}
-            >
-              {role}
-            </p>
-          </div>
+          <span
+            style={{
+              fontFamily: "Montserrat",
+              fontWeight: 600,
+              fontSize: "12px",
+              lineHeight: "1.2",
+              color: "#121212",
+            }}
+          >
+            Cerina App User
+          </span>
         </div>
-        */}
       </div>
     </div>
   );
